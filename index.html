@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Have It In You! — Prepare for SSB the Right Way | Lt Cdr Vinay S Bharamanaikar</title>
+    <meta name="description" content="The only guide to SSB preparation that works: build the 15 Officer-Like Qualities in your daily life. Written by a former Group Testing Officer who assessed 10,000+ candidates.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
+            background-color: #F5F1E8;
+            line-height: 1.6;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+        }
+
+        .eyebrow {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #C9A961;
+            margin-bottom: 1rem;
+        }
+
+        .small-caps {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 96px 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 64px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 48px 0;
+            }
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #0B1B2B;
+            color: #F5F1E8;
+            padding: 1.25rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #C9A961;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #F5F1E8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #C9A961;
+        }
+
+        .nav-cta {
+            background-color: #C9A961;
+            color: #0B1B2B;
+            padding: 0.625rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            box-shadow: 0 8px 16px rgba(201, 169, 97, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 0.375rem;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: #F5F1E8;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: #0B1B2B;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        #hero {
+            background-color: #F5F1E8;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            margin: 1rem 0 0.5rem 0;
+            color: #0B1B2B;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #0B1B2B;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-hook {
+            font-size: 1.375rem;
+            color: #C9A961;
+            font-weight: 600;
+            margin: 2rem 0;
+            line-height: 1.4;
+        }
+
+        .hero-pitch {
+            font-size: 1rem;
+            color: #1A1A1A;
+            margin: 1.5rem 0 2rem 0;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: inline-block;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: #C9A961;
+            color: #0B1B2B;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 12px 24px rgba(201, 169, 97, 0.35);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #0B1B2B;
+            color: #0B1B2B;
+            background-color: transparent;
+        }
+
+        .btn-secondary:hover {
+            background-color: #0B1B2B;
+            color: #F5F1E8;
+        }
+
+        .trust-line {
+            font-size: 0.85rem;
+            color: #1A1A1A;
+            margin-top: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* 3D BOOK COVER ===== */
+        .book-mockup {
+            perspective: 1000px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .book {
+            width: 280px;
+            height: 420px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .book-spine {
+            position: absolute;
+            width: 30px;
+            height: 420px;
+            background: linear-gradient(90deg, #070d19 0%, #0B1B2B 50%, #0d2541 100%);
+            left: -15px;
+            transform: rotateY(19deg);
+            transform-origin: right;
+            border-radius: 0 4px 4px 0;
+            box-shadow: -8px 0 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .book-front {
+            position: absolute;
+            width: 280px;
+            height: 420px;
+            background: linear-gradient(135deg, #0B1B2B 0%, #162a47 100%);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 30px;
+            box-shadow: 8px 16px 40px rgba(0, 0, 0, 0.5);
+            transform: rotateY(0deg);
+            z-index: 10;
+        }
+
+        .book-top-accent {
+            width: 60%;
+            height: 2px;
+            background-color: #C9A961;
+            margin-top: 10px;
+        }
+
+        .book-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            color: #C9A961;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 30px 0;
+            line-height: 1.3;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .book-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: #C9A961;
+            text-align: center;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .book-author {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            color: #F5F1E8;
+            text-align: center;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-top: 40px;
+        }
+
+        .book-bottom-accent {
+            width: 60%;
+            height: 2px;
+            background-color: #C9A961;
+            margin-bottom: 10px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .book-mockup {
+                height: 400px;
+            }
+
+            .book {
+                width: 240px;
+                height: 360px;
+            }
+
+            .book-front {
+                width: 240px;
+                height: 360px;
+                padding: 33px 25px;
+            }
+
+            .book-title {
+                font-size: 1.5rem;
+                margin: 25px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                min-height: auto;
+                padding-top: 0;
+            }
+
+            .cta-group {
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .book-mockup {
+                height: 350px;
+            }
+
+            .book {
+                width: 200px;
+                height: 300px;
+            }
+
+            .book-front {
+                width: 200px;
+                height: 300px;
+                padding: 25px 20px;
+            }
+
+            .book-title {
+                font-size: 1.3rem;
+                margin: 20px 0;
+            }
+        }
+
+        /* ===== FADE IN ANIMATION ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== PROBLEM SECTION ===== */
+        #problem {
+            background-color: #0B1B2B;
+            color: #F5F1E8;
+        }
+
+        #problem h2 {
+            color: #C9A961;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background-color: rgba(255, 241, 232, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .problem-icon {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #C9A961;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .problem-card h3 {
+            color: #F5F1E8;
+            margin-bottom: 0.75rem;
+        }
+
+        .problem-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(245, 241, 232, 0.85);
+        }
+
+        /* ===== PROMISE SECTION ===== */
+        #promise {
+            background-color: #F5F1E8;
+        }
+
+        #promise h2 {
+            color: #0B1B2B;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .promise-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #1A1A1A;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .promise-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .promise-item h3 {
+            color: #0B1B2B;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .promise-item p {
+            color: #1A1A1A;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== OLQ GRID ===== */
+        #olq {
+            background-color: #0B1B2B;
+            color: #F5F1E8;
+        }
+
+        #olq h2 {
+            color: #C9A961;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .olq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 1200px) {
+            .olq-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .olq-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .olq-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .olq-card {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            padding: 1.75rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .olq-card:hover {
+            transform: translateY(-6px);
+            border-color: #C9A961;
+            box-shadow: 0 12px 24px rgba(201, 169, 97, 0.15);
+        }
+
+        .olq-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #C9A961;
+            margin-bottom: 0.5rem;
+        }
+
+        .olq-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: #F5F1E8;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .olq-card p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: rgba(245, 241, 232, 0.8);
+        }
+
+        /* ===== WHAT'S INSIDE ===== */
+        #inside {
+            background-color: #F5F1E8;
+        }
+
+        #inside h2 {
+            color: #0B1B2B;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .toc-part {
+            margin-bottom: 3rem;
+        }
+
+        .toc-part-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            color: #C9A961;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #C9A961;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .toc-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .toc-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: #C9A961;
+            font-weight: 700;
+            flex-shrink: 0;
+            min-width: 30px;
+        }
+
+        .toc-content h4 {
+            color: #0B1B2B;
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .toc-content p {
+            font-size: 0.9rem;
+            color: #1A1A1A;
+            opacity: 0.8;
+        }
+
+        /* ===== PULL QUOTE ===== */
+        #quote {
+            background-color: #0B1B2B;
+            color: #F5F1E8;
+            position: relative;
+        }
+
+        .quote-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quote-mark {
+            font-size: 3.5rem;
+            color: #C9A961;
+            opacity: 0.6;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #F5F1E8;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .quote-attribution {
+            font-size: 0.95rem;
+            color: #C9A961;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== AUTHOR SECTION ===== */
+        #author {
+            background-color: #F5F1E8;
+        }
+
+        #author h2 {
+            color: #0B1B2B;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .author-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .author-image-placeholder {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0B1B2B 0%, #162a47 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 12px 40px rgba(11, 27, 43, 0.2);
+            overflow: hidden;
+        }
+
+        .author-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .author-content h3 {
+            color: #0B1B2B;
+            margin-bottom: 1rem;
+        }
+
+        .author-content p {
+            font-size: 0.95rem;
+            color: #1A1A1A;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .author-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(201, 169, 97, 0.2);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            color: #C9A961;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #1A1A1A;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .author-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .author-image-placeholder {
+                width: 240px;
+                height: 240px;
+            }
+        }
+
+        /* ===== WHO'S IT FOR ===== */
+        #audience {
+            background-color: #0B1B2B;
+            color: #F5F1E8;
+        }
+
+        #audience h2 {
+            color: #C9A961;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .audience-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            justify-content: center;
+        }
+
+        .chip {
+            background-color: #C9A961;
+            color: #0B1B2B;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+        }
+
+        /* ===== FINAL CTA ===== */
+        #final-cta {
+            background: linear-gradient(135deg, #0B1B2B 0%, #162a47 100%);
+            color: #F5F1E8;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        #final-cta h2 {
+            color: #F5F1E8;
+            margin-bottom: 2rem;
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
+        }
+
+        .final-cta-button {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-subtext {
+            font-size: 0.9rem;
+            color: rgba(245, 241, 232, 0.8);
+            margin-top: 1rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #070d19;
+            color: #F5F1E8;
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #C9A961;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            margin: 0 1.5rem;
+        }
+
+        .footer-credit {
+            margin-top: 1rem;
+            opacity: 0.6;
+            font-size: 0.8rem;
+        }
+
+        /* ===== UTILITY ===== */
+        .accent {
+            color: #C9A961;
+        }
+    </style>
+</head>
+<body>
+    <!-- STICKY NAV -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">Have It In You!</div>
+            <ul class="nav-links">
+                <li><a href="#inside">What's Inside</a></li>
+                <li><a href="#author">The Author</a></li>
+                <li><a href="#audience">Who It's For</a></li>
+                <li><a href="https://notionpress.com/" class="nav-cta">Buy on Notion Press →</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content fade-in">
+                    <p class="eyebrow">By a Former Group Testing Officer · Indian Armed Forces</p>
+                    <h1>Have It In You!</h1>
+                    <p class="hero-subtitle">Prepare for SSB the right way</p>
+                    <p class="hero-hook">"Stop trying to beat the Board. Start becoming the Officer they can't ignore."</p>
+                    <p class="hero-pitch">Most SSB aspirants prepare the wrong way — memorising techniques, rehearsing answers, learning the "SSB way" of walking and talking. A former GTO explains why this fails within hours. This book teaches the approach the author believes to be the best way: become the person worth recommending.</p>
+                    <div class="cta-group">
+                        <a href="https://notionpress.com/" class="btn btn-primary">Buy on Notion Press →</a>
+                        <a href="#inside" class="btn btn-secondary">Read a Sample</a>
+                    </div>
+                    <p class="trust-line">Thousands assessed in Stage 1, hundreds in Stage 2 by the author</p>
+                </div>
+                <div class="book-mockup fade-in">
+                    <div class="book">
+                        <div class="book-spine"></div>
+                        <div class="book-front">
+                            <div class="book-top-accent"></div>
+                            <div class="book-subtitle">Prepare for SSB<br>the Right Way</div>
+                            <div class="book-title">Have It In You!</div>
+                            <div class="book-author">Lt Cdr Vinay S Bharamanaikar (Retd.)<br>Ex Group Testing Officer</div>
+                            <div class="book-bottom-accent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section id="problem">
+        <div class="container">
+            <h2>Most aspirants prepare for SSB the wrong way.</h2>
+            <div class="problem-cards fade-in">
+                <div class="problem-card">
+                    <div class="problem-icon">1</div>
+                    <h3>Rehearsed Answers</h3>
+                    <p>They memorise the "right" things to say about OLQs. Within the first hour, an assessor recognises a script.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">2</div>
+                    <h3>Learned Techniques</h3>
+                    <p>They practice the walk, the posture, the "officer-like" tone. Artificial mannerisms read as panic, not confidence.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">3</div>
+                    <h3>Fake Confidence</h3>
+                    <p>They try to project what they think an officer should be. Real leaders are built in months, not mimic weeks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMISE SECTION -->
+    <section id="promise">
+        <div class="container fade-in">
+            <h2>There's a longer, harder, more rewarding path. This book is the map.</h2>
+            <p class="promise-intro">Character is built over time, not faked in a week. Your preparation journey becomes the foundation for how assessors perceive you.</p>
+            <div class="promise-items">
+                <div class="promise-item">
+                    <h3>Built on insider knowledge</h3>
+                    <p>Written by a GTO who sat on the assessor's side for thousands of candidates. Honest about what assessors see — and what they don't.</p>
+                </div>
+                <div class="promise-item">
+                    <h3>15 Officer-Like Qualities, deeply explored</h3>
+                    <p>Each chapter builds one OLQ through daily practice. No shortcuts. Real transformation takes time.</p>
+                </div>
+                <div class="promise-item">
+                    <h3>Practical drills, not theory</h3>
+                    <p>Every chapter ends with "Start Today" exercises you can begin tomorrow morning. No more waiting.</p>
+                </div>
+                <div class="promise-item">
+                    <h3>Workbooks included</h3>
+                    <p>A Self-Assessment Worksheet and 90-Day Preparation Calendar keep you on track from day one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OLQ GRID -->
+    <section id="olq">
+        <div class="container">
+            <h2>The 15 Officer-Like Qualities</h2>
+            <div class="olq-grid fade-in">
+                <div class="olq-card">
+                    <div class="olq-number">1</div>
+                    <h4>Effective Intelligence</h4>
+                    <p>The clarity to grasp complex situations quickly</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">2</div>
+                    <h4>Reasoning Ability</h4>
+                    <p>Sound judgement through logical thought</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">3</div>
+                    <h4>Organising Ability</h4>
+                    <p>The discipline to systemise and execute</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">4</div>
+                    <h4>Power of Expression</h4>
+                    <p>Clarity and conviction in communication</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">5</div>
+                    <h4>Social Adaptability</h4>
+                    <p>The ease to connect across backgrounds</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">6</div>
+                    <h4>Co-operation</h4>
+                    <p>The genuineness to work with, not for, others</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">7</div>
+                    <h4>Sense of Responsibility</h4>
+                    <p>The quiet ownership of outcomes</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">8</div>
+                    <h4>Initiative</h4>
+                    <p>The forward momentum to act without asking</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">9</div>
+                    <h4>Self Confidence</h4>
+                    <p>The grounded belief in your capability</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">10</div>
+                    <h4>Speed of Decision</h4>
+                    <p>The decisiveness to move under uncertainty</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">11</div>
+                    <h4>Ability to Influence the Group</h4>
+                    <p>The power to lead without authority</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">12</div>
+                    <h4>Liveliness</h4>
+                    <p>The energy that lifts others</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">13</div>
+                    <h4>Determination</h4>
+                    <p>The resilience to persist when it's hard</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">14</div>
+                    <h4>Courage</h4>
+                    <p>The bravery to face discomfort and risk</p>
+                </div>
+                <div class="olq-card">
+                    <div class="olq-number">15</div>
+                    <h4>Stamina</h4>
+                    <p>The endurance to perform under pressure</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT'S INSIDE -->
+    <section id="inside">
+        <div class="container fade-in">
+            <h2>What's Inside the Book</h2>
+            
+            <div class="toc-part">
+                <div class="toc-part-title">Part I: Know What You're Walking Into</div>
+                <div class="toc-grid">
+                    <div class="toc-item">
+                        <div class="toc-number">1</div>
+                        <div class="toc-content">
+                            <h4>What Actually Happens at the SSB</h4>
+                            <p>A 5-day walkthrough from a GTO's perspective</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">2</div>
+                        <div class="toc-content">
+                            <h4>Stage 1 — What You Must Clear First</h4>
+                            <p>OIR + PPDT breakdown with daily drills</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toc-part">
+                <div class="toc-part-title">Part II: The Commander's Compass</div>
+                <div class="toc-grid">
+                    <div class="toc-item">
+                        <div class="toc-number">3</div>
+                        <div class="toc-content">
+                            <h4>Effective Intelligence</h4>
+                            <p>How to build clarity and analytical depth</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">4</div>
+                        <div class="toc-content">
+                            <h4>Reasoning Ability</h4>
+                            <p>Developing sound judgment through practice</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">5</div>
+                        <div class="toc-content">
+                            <h4>Organising Ability</h4>
+                            <p>The discipline of systems and execution</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">6</div>
+                        <div class="toc-content">
+                            <h4>Power of Expression</h4>
+                            <p>From clarity to conviction in your voice</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toc-part">
+                <div class="toc-part-title">Part III: The Art of Blending In</div>
+                <div class="toc-grid">
+                    <div class="toc-item">
+                        <div class="toc-number">7</div>
+                        <div class="toc-content">
+                            <h4>Social Adaptability</h4>
+                            <p>Connecting authentically across all contexts</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">8</div>
+                        <div class="toc-content">
+                            <h4>Co-operation</h4>
+                            <p>Building teams, not just performing in them</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">9</div>
+                        <div class="toc-content">
+                            <h4>Sense of Responsibility</h4>
+                            <p>The ownership that defines good officers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toc-part">
+                <div class="toc-part-title">Part IV: Leading Through People</div>
+                <div class="toc-grid">
+                    <div class="toc-item">
+                        <div class="toc-number">10</div>
+                        <div class="toc-content">
+                            <h4>Initiative</h4>
+                            <p>Moving first without waiting for orders</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">11</div>
+                        <div class="toc-content">
+                            <h4>Self Confidence</h4>
+                            <p>The grounded belief assessors recognise</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">12</div>
+                        <div class="toc-content">
+                            <h4>Speed of Decision</h4>
+                            <p>Decisiveness under uncertainty and pressure</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">13</div>
+                        <div class="toc-content">
+                            <h4>Ability to Influence the Group</h4>
+                            <p>Leading without authority or title</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">14</div>
+                        <div class="toc-content">
+                            <h4>Liveliness</h4>
+                            <p>The energy that energises others</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toc-part">
+                <div class="toc-part-title">Part V: The Iron Within</div>
+                <div class="toc-grid">
+                    <div class="toc-item">
+                        <div class="toc-number">15</div>
+                        <div class="toc-content">
+                            <h4>Determination</h4>
+                            <p>Resilience and grit in the face of setback</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">16</div>
+                        <div class="toc-content">
+                            <h4>Courage</h4>
+                            <p>The bravery that defines true character</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">17</div>
+                        <div class="toc-content">
+                            <h4>Stamina</h4>
+                            <p>Endurance under the weight of five days</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toc-part">
+                <div class="toc-part-title">Part VI: For the Repeaters</div>
+                <div class="toc-grid">
+                    <div class="toc-item">
+                        <div class="toc-number">18</div>
+                        <div class="toc-content">
+                            <h4>For the Repeaters</h4>
+                            <p>A roadmap for the second attempt — and beyond</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toc-part">
+                <div class="toc-part-title">Appendices: Your Working Toolkit</div>
+                <div class="toc-grid">
+                    <div class="toc-item">
+                        <div class="toc-number">A</div>
+                        <div class="toc-content">
+                            <h4>Self-Assessment Worksheet</h4>
+                            <p>Track your development across all 15 OLQs</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">B</div>
+                        <div class="toc-content">
+                            <h4>90-Day Preparation Calendar</h4>
+                            <p>A month-by-month roadmap to the board</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">C</div>
+                        <div class="toc-content">
+                            <h4>Recommended Reading and Viewing</h4>
+                            <p>Resources that build the officer within</p>
+                        </div>
+                    </div>
+                    <div class="toc-item">
+                        <div class="toc-number">D</div>
+                        <div class="toc-content">
+                            <h4>Sample Lecturette Topics with Model Structures</h4>
+                            <p>Frameworks for crafting compelling 3-minute talks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PULL QUOTE -->
+    <section id="quote">
+        <div class="container">
+            <div class="quote-wrapper fade-in">
+                <div class="quote-mark">"</div>
+                <p class="quote-text">The real measure of a leader is not how many orders he or she can give. It is how many people choose to follow.</p>
+                <p class="quote-attribution">— Lt Cdr Vinay S Bharamanaikar (Retd.), From the Assessor's Desk</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT THE AUTHOR -->
+    <section id="author">
+        <div class="container">
+            <h2>About the Author</h2>
+            <div class="author-container fade-in">
+                <div class="author-image-placeholder">
+                    <img src="author.jpg" alt="Lt Cdr Vinay S Bharamanaikar (Retd.)">
+                </div>
+                <div class="author-content">
+                    <h3>Lt Cdr Vinay S Bharamanaikar (Retd.)</h3>
+                    <p>With a career spanning several years in the Indian Navy, Lt Cdr Vinay S Bharamanaikar (Retd.) served as a Group Testing Officer at the Services Selection Board, assessing thousands of candidates across Stage 1 interviews, PPDT exercises, and hundreds in Stage 2 in-depth evaluations.</p>
+                    <p>Over his tenure as a GTO, Lt Cdr Bharamanaikar (Retd.) assessed thousands of candidates in Stage 1 and hundreds in Stage 2. He has seen every preparation strategy, every rehearsed answer, every attempt at artificial confidence. He has also recognised which candidates possessed something deeper: the genuine officer-like qualities that assessors cannot miss.</p>
+                    <p>This book is his attempt to bridge that gap — to help aspirants understand not what assessors want to hear, but who assessors want to recommend.</p>
+                    <div class="author-stats">
+                        <div class="stat">
+                            <div class="stat-number">10,000+</div>
+                            <div class="stat-label">Assessed in Stage 1</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Stage 2 Evaluations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO THIS BOOK IS FOR -->
+    <section id="audience">
+        <div class="container fade-in">
+            <h2>Who This Book Is For</h2>
+            <div class="audience-chips">
+                <div class="chip">First-time SSB aspirants</div>
+                <div class="chip">Repeat candidates</div>
+                <div class="chip">NDA / CDS / AFCAT / INET hopefuls</div>
+                <div class="chip">Parents & mentors of aspirants</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA BANNER -->
+    <section id="final-cta">
+        <div class="container fade-in">
+            <h2>The uniform isn't given. It's earned. Start earning it today.</h2>
+            <div class="final-cta-button">
+                <a href="https://notionpress.com/" class="btn btn-primary">Buy on Notion Press →</a>
+            </div>
+            <p class="cta-subtext">Available in paperback and eBook on Notion Press</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://notionpress.com/">Buy on Notion Press</a>
+        </div>
+        <p>&copy; 2026 Lt Cdr Vinay S Bharamanaikar (Retd.). All rights reserved.</p>
+        <p class="footer-credit">Have It In You! — A guide to becoming the Officer they can't ignore.</p>
+    </footer>
+
+    <script>
+        // Mobile hamburger menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
