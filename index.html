@@ -868,15 +868,6 @@
             font-size: clamp(1.75rem, 5vw, 2.75rem);
         }
 
-        .price-promise {
-            color: #FFD700;
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
         .final-cta-button {
             display: inline-block;
             margin-bottom: 1.5rem;
@@ -925,18 +916,37 @@
         .accent {
             color: #C9A961;
         }
+
+        /* ===== PRICE BANNER ===== */
+        .price-banner {
+            background: linear-gradient(135deg, #800000 0%, #600000 100%);
+            color: #FFD700;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-family: 'Merriweather', serif;
+            line-height: 1.6;
+        }
+
+        .price-banner strong {
+            color: #FFFFFF;
+        }
     </style>
 </head>
 <body>
     <!-- STICKY NAV -->
     <nav>
         <div class="nav-container">
-            <div class="nav-brand"><span class="strikethrough">Do</span> <span class="strikethrough">You</span> Have It In <span class="strikethrough">You</span> <span class="strikethrough">?</span> !</div>
+            <div class="nav-brand"><span class="strikethrough">Do</span> You Have It In You <span class="strikethrough">?</span> !</div>
             <ul class="nav-links">
                 <li><a href="#inside">What's Inside</a></li>
                 <li><a href="#author">The Author</a></li>
                 <li><a href="#audience">Who It's For</a></li>
-                <li><a href="#" class="nav-cta nav-cta-disabled" onclick="return false;">Coming Soon</a></li>
+                <li><a href="#" class="nav-cta nav-cta-disabled" onclick="return false;">Paper Back Coming Soon</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -945,6 +955,11 @@
             </div>
         </div>
     </nav>
+
+    <!-- PRICE BANNER -->
+    <div class="price-banner">
+        All you need to clear SSB is <strong>Rs 249</strong> to learn from this book and <strong>6 months to 1 year</strong> of hard work.
+    </div>
 
     <!-- HERO SECTION -->
     <section id="hero">
@@ -1370,18 +1385,17 @@
     <section id="final-cta">
         <div class="container fade-in">
             <h2>The uniform isn't given. It's earned. Start earning it today.</h2>
-            <p class="price-promise">All you need to clear SSB is Rs 249 to buy this book and 6 months to 1 year of hard work.</p>
             <div class="final-cta-button">
-                <a href="#" class="btn btn-primary btn-disabled" onclick="return false;">Coming Soon</a>
+                <a href="#" class="btn btn-primary btn-disabled" onclick="return false;">Paper Back Coming Soon</a>
             </div>
-            <p class="cta-subtext">Available across all platforms. Coming soon!</p>
+            <p class="cta-subtext">Paperback edition coming soon on Notion Press</p>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-links">
-            <a href="#">Coming Soon on Notion Press</a>
+            <a href="#">Paper Back Coming Soon on Notion Press</a>
         </div>
         <p>&copy; 2026 Lt Cdr Vinay S Bharamanaikar (Retd.). All rights reserved.</p>
         <p class="footer-credit">Have It In You! — A guide to becoming the Officer they can't ignore.</p>
