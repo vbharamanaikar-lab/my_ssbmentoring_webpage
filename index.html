@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18185541641"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18185541641');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Have It In You! — Prepare for SSB the Right Way | Lt Cdr Vinay S Bharamanaikar</title>
     <meta name="description" content="The only guide to SSB preparation that works: build the 15 Officer-Like Qualities in your daily life. Written by a former Group Testing Officer who assessed 10,000+ candidates.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -20,7 +29,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Merriweather', serif;
             color: #1A1A1A;
             background-color: #F5F1E8;
             line-height: 1.6;
@@ -89,7 +98,7 @@
         nav {
             position: sticky;
             top: 0;
-            background-color: #0B1B2B;
+            background-color: #800000;
             color: #F5F1E8;
             padding: 1.25rem 0;
             z-index: 1000;
@@ -107,10 +116,16 @@
 
         .nav-brand {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
+            font-size: 1.875rem;
             font-weight: 700;
             color: #C9A961;
             letter-spacing: -0.02em;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
         }
 
         .nav-links {
@@ -147,6 +162,17 @@
         .nav-cta:hover {
             box-shadow: 0 8px 16px rgba(201, 169, 97, 0.3);
             transform: translateY(-2px);
+        }
+
+        .nav-cta-disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .nav-cta-disabled:hover {
+            box-shadow: none;
+            transform: none;
         }
 
         .hamburger {
@@ -203,42 +229,112 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
+            padding: 40px 0;
         }
 
         .hero-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-right: 2rem;
         }
 
         .hero-content h1 {
-            margin: 1rem 0 0.5rem 0;
-            color: #0B1B2B;
+            color: #800000;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin: 0;
+            line-height: 1.2;
         }
 
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #0B1B2B;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-hook {
-            font-size: 1.375rem;
-            color: #C9A961;
-            font-weight: 600;
-            margin: 2rem 0;
-            line-height: 1.4;
-        }
-
-        .hero-pitch {
-            font-size: 1rem;
+        .hero-content p {
             color: #1A1A1A;
-            margin: 1.5rem 0 2rem 0;
-            max-width: 500px;
-            line-height: 1.8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0.75rem 0;
+        }
+
+        .hero-content p:first-of-type {
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .hero-content strong {
+            color: #0B1B2B;
+            font-weight: 700;
+        }
+
+        .hero-content em {
+            color: #800000;
+            font-style: italic;
+        }
+
+        .hero-list {
+            list-style: none;
+            padding: 1rem 0;
+            margin: 1rem 0;
+            border-left: 3px solid #800000;
+            padding-left: 1.5rem;
+        }
+
+        .hero-list li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #1A1A1A;
+        }
+
+        .book-cover-sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            position: sticky;
+            top: 100px;
+        }
+
+        .book-mockup {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .book-cover-image {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-cta-button {
+            display: inline-block;
+            width: 100%;
+            max-width: 280px;
+            padding: 1rem;
+            background-color: #FF9900;
+            color: #0B1B2B;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 2px solid #FF9900;
+        }
+
+        .book-cta-button:hover {
+            background-color: #F39C12;
+            border-color: #F39C12;
+            box-shadow: 0 6px 16px rgba(255, 153, 0, 0.3);
+            transform: translateY(-2px);
         }
 
         .cta-group {
@@ -282,6 +378,17 @@
             color: #F5F1E8;
         }
 
+        .btn-disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .btn-disabled:hover {
+            box-shadow: none;
+            transform: none;
+        }
+
         .trust-line {
             font-size: 0.85rem;
             color: #1A1A1A;
@@ -289,168 +396,79 @@
             font-weight: 500;
         }
 
-        /* 3D BOOK COVER ===== */
-        .book-mockup {
-            perspective: 1000px;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .book {
-            width: 280px;
-            height: 420px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .book-spine {
-            position: absolute;
-            width: 30px;
-            height: 420px;
-            background: linear-gradient(90deg, #070d19 0%, #0B1B2B 50%, #0d2541 100%);
-            left: -15px;
-            transform: rotateY(19deg);
-            transform-origin: right;
-            border-radius: 0 4px 4px 0;
-            box-shadow: -8px 0 16px rgba(0, 0, 0, 0.4);
-        }
-
-        .book-front {
-            position: absolute;
-            width: 280px;
-            height: 420px;
-            background: linear-gradient(135deg, #0B1B2B 0%, #162a47 100%);
-            border-radius: 4px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 40px 30px;
-            box-shadow: 8px 16px 40px rgba(0, 0, 0, 0.5);
-            transform: rotateY(0deg);
-            z-index: 10;
-        }
-
-        .book-top-accent {
-            width: 60%;
-            height: 2px;
-            background-color: #C9A961;
-            margin-top: 10px;
-        }
-
-        .book-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.75rem;
-            color: #C9A961;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin: 30px 0;
-            line-height: 1.3;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .book-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            color: #C9A961;
-            text-align: center;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        .book-author {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            color: #F5F1E8;
-            text-align: center;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            opacity: 0.8;
-            margin-top: 40px;
-        }
-
-        .book-bottom-accent {
-            width: 60%;
-            height: 2px;
-            background-color: #C9A961;
-            margin-bottom: 10px;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
         @media (max-width: 1024px) {
             .hero-container {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2rem;
             }
 
-            .book-mockup {
-                height: 400px;
+            .hero-content {
+                padding-right: 0;
             }
 
-            .book {
-                width: 240px;
-                height: 360px;
+            .book-cover-sidebar {
+                position: static;
+                max-width: 300px;
+                margin: 0 auto;
             }
 
-            .book-front {
-                width: 240px;
-                height: 360px;
-                padding: 33px 25px;
-            }
-
-            .book-title {
-                font-size: 1.5rem;
-                margin: 25px 0;
+            .book-cover-image {
+                max-width: 250px;
             }
         }
 
         @media (max-width: 768px) {
             #hero {
                 min-height: auto;
-                padding-top: 0;
+                padding: 2rem 0;
             }
 
-            .cta-group {
-                flex-wrap: wrap;
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
-            .btn {
-                width: 100%;
-                text-align: center;
+            .hero-content h1 {
+                font-size: 1.75rem;
             }
 
-            .book-mockup {
-                height: 350px;
+            .hero-content p {
+                font-size: 0.9rem;
             }
 
-            .book {
-                width: 200px;
-                height: 300px;
+            .book-cover-sidebar {
+                position: static;
+                max-width: 100%;
             }
 
-            .book-front {
-                width: 200px;
-                height: 300px;
-                padding: 25px 20px;
+            .book-cover-image {
+                max-width: 200px;
             }
 
-            .book-title {
-                font-size: 1.3rem;
-                margin: 20px 0;
+            .book-cta-button {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.4rem;
+            }
+
+            .hero-content p {
+                font-size: 0.85rem;
+            }
+
+            .hero-list {
+                padding-left: 1rem;
+            }
+
+            .hero-list li {
+                font-size: 0.85rem;
+            }
+
+            .book-cover-image {
+                max-width: 150px;
             }
         }
 
@@ -850,6 +868,15 @@
             font-size: clamp(1.75rem, 5vw, 2.75rem);
         }
 
+        .price-promise {
+            color: #FFD700;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
         .final-cta-button {
             display: inline-block;
             margin-bottom: 1.5rem;
@@ -863,7 +890,7 @@
 
         /* ===== FOOTER ===== */
         footer {
-            background-color: #070d19;
+            background-color: #800000;
             color: #F5F1E8;
             padding: 3rem 2rem;
             text-align: center;
@@ -904,12 +931,12 @@
     <!-- STICKY NAV -->
     <nav>
         <div class="nav-container">
-            <div class="nav-brand">Have It In You!</div>
+            <div class="nav-brand"><span class="strikethrough">Do</span> <span class="strikethrough">You</span> Have It In <span class="strikethrough">You</span> <span class="strikethrough">?</span> !</div>
             <ul class="nav-links">
                 <li><a href="#inside">What's Inside</a></li>
                 <li><a href="#author">The Author</a></li>
                 <li><a href="#audience">Who It's For</a></li>
-                <li><a href="https://notionpress.com/" class="nav-cta">Buy on Notion Press →</a></li>
+                <li><a href="#" class="nav-cta nav-cta-disabled" onclick="return false;">Coming Soon</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -924,28 +951,27 @@
         <div class="container">
             <div class="hero-container">
                 <div class="hero-content fade-in">
-                    <p class="eyebrow">By a Former Group Testing Officer · Indian Armed Forces</p>
-                    <h1>Have It In You!</h1>
-                    <p class="hero-subtitle">Prepare for SSB the right way</p>
-                    <p class="hero-hook">"Stop trying to beat the Board. Start becoming the Officer they can't ignore."</p>
-                    <p class="hero-pitch">Most SSB aspirants prepare the wrong way — memorising techniques, rehearsing answers, learning the "SSB way" of walking and talking. A former GTO explains why this fails within hours. This book teaches the approach the author believes to be the best way: become the person worth recommending.</p>
-                    <div class="cta-group">
-                        <a href="https://notionpress.com/" class="btn btn-primary">Buy on Notion Press →</a>
-                        <a href="#inside" class="btn btn-secondary">Read a Sample</a>
-                    </div>
-                    <p class="trust-line">Thousands assessed in Stage 1, hundreds in Stage 2 by the author</p>
+                    <h1>Are You just an Aspirant, or an Officer in the Making?</h1>
+                    <p>The Board doesn't just test what you know; it identifies your potential to lead. Every year, thousands of aspirants arrive at the Selection Centres seeking the prestige of the uniform. Yet, the vast majority return without a recommendation. They don't fail for a lack of effort—they fail because the Board searches for a standard of character that cannot be manufactured through shortcuts.</p>
+                    
+                    <p>The SSB is a high-stakes discovery of your core personality where transparency is the only path to success.</p>
+                    
+                    <p>Lt Cdr Vinay S Bharamanaikar (Retd.), a former Assessor who has evaluated hundreds of candidates, finally bridges the gap between being an applicant and becoming an officer. He provides a masterclass in professional transformation, revealing the deliberate practice required to cultivate the fifteen Officer-Like Qualities (OLQs) that the Board weighs with precision.</p>
+                    
+                    <p><strong>Inside, you will master:</strong></p>
+                    <ul class="hero-list">
+                        <li><strong>The Assessor's Perspective:</strong> Understand what the Board sees when candidates fail for reasons they cannot name.</li>
+                        <li><strong>The OLQ Blueprint:</strong> A roadmap to developing leadership traits through honest, consistent growth and practice.</li>
+                        <li><strong>The Standard of Excellence:</strong> How to align your conduct with the expectations of the Indian Armed Forces.</li>
+                    </ul>
+                    
+                    <p>Before you face the Board, face this book. Answer the only question that determines your future: <em>Do you have it in you?</em> Because in the end, the Board doesn't just test what you know; it identifies your potential to lead.</p>
                 </div>
-                <div class="book-mockup fade-in">
-                    <div class="book">
-                        <div class="book-spine"></div>
-                        <div class="book-front">
-                            <div class="book-top-accent"></div>
-                            <div class="book-subtitle">Prepare for SSB<br>the Right Way</div>
-                            <div class="book-title">Have It In You!</div>
-                            <div class="book-author">Lt Cdr Vinay S Bharamanaikar (Retd.)<br>Ex Group Testing Officer</div>
-                            <div class="book-bottom-accent"></div>
-                        </div>
+                <div class="book-cover-sidebar fade-in">
+                    <div class="book-mockup">
+                        <img src="bookcover.jpg" alt="Have It In You! Book Cover" class="book-cover-image">
                     </div>
+                    <a href="https://www.amazon.in/HAVE-YOU-Prepare-SSB-right-ebook/dp/B0GX3CPTQN" class="book-cta-button" target="_blank">Buy on Amazon</a>
                 </div>
             </div>
         </div>
@@ -1344,17 +1370,18 @@
     <section id="final-cta">
         <div class="container fade-in">
             <h2>The uniform isn't given. It's earned. Start earning it today.</h2>
+            <p class="price-promise">All you need to clear SSB is Rs 249 to buy this book and 6 months to 1 year of hard work.</p>
             <div class="final-cta-button">
-                <a href="https://notionpress.com/" class="btn btn-primary">Buy on Notion Press →</a>
+                <a href="#" class="btn btn-primary btn-disabled" onclick="return false;">Coming Soon</a>
             </div>
-            <p class="cta-subtext">Available in paperback and eBook on Notion Press</p>
+            <p class="cta-subtext">Available across all platforms. Coming soon!</p>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-links">
-            <a href="https://notionpress.com/">Buy on Notion Press</a>
+            <a href="#">Coming Soon on Notion Press</a>
         </div>
         <p>&copy; 2026 Lt Cdr Vinay S Bharamanaikar (Retd.). All rights reserved.</p>
         <p class="footer-credit">Have It In You! — A guide to becoming the Officer they can't ignore.</p>
