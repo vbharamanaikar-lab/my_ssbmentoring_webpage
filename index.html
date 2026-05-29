@@ -15,7 +15,7 @@
     <title>Have It In You! — Prepare for SSB the Right Way | Lt Cdr Vinay S Bharamanaikar</title>
     <meta name="description" content="The only guide to SSB preparation that works: build the 15 Officer-Like Qualities in your daily life. Written by a former Group Testing Officer who assessed 10,000+ candidates.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -29,7 +29,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Merriweather', serif;
             color: #1A1A1A;
             background-color: #F5F1E8;
             line-height: 1.6;
@@ -116,10 +116,16 @@
 
         .nav-brand {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
+            font-size: 1.875rem;
             font-weight: 700;
             color: #C9A961;
             letter-spacing: -0.02em;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
         }
 
         .nav-links {
@@ -156,6 +162,17 @@
         .nav-cta:hover {
             box-shadow: 0 8px 16px rgba(201, 169, 97, 0.3);
             transform: translateY(-2px);
+        }
+
+        .nav-cta-disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .nav-cta-disabled:hover {
+            box-shadow: none;
+            transform: none;
         }
 
         .hamburger {
@@ -359,6 +376,17 @@
         .btn-secondary:hover {
             background-color: #0B1B2B;
             color: #F5F1E8;
+        }
+
+        .btn-disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .btn-disabled:hover {
+            box-shadow: none;
+            transform: none;
         }
 
         .trust-line {
@@ -888,18 +916,41 @@
         .accent {
             color: #C9A961;
         }
+
+        /* ===== PRICE BANNER ===== */
+        .price-banner {
+            /* Subtle off-white gradient */
+            background: linear-gradient(135deg, #fdfbf7 0%, #e6e3dc 100%);
+            /* Changed to dark gray for readability on a light background */
+            color: #333333; 
+            padding: 1rem 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            /* Softened the text shadow so it doesn't look muddy */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            /* Softened the box shadow to match the lighter theme */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            font-family: 'Merriweather', serif;
+            line-height: 1.6;
+        }
+
+        .price-banner strong {
+            color: #FFFFFF;
+        }
     </style>
 </head>
 <body>
     <!-- STICKY NAV -->
     <nav>
         <div class="nav-container">
-            <div class="nav-brand">SSB Interview Mentor</div>
+            <div class="nav-brand"><span class="strikethrough">Do You</span> Have It In You <span class="strikethrough">?</span> !</div>
             <ul class="nav-links">
                 <li><a href="#inside">What's Inside</a></li>
                 <li><a href="#author">The Author</a></li>
                 <li><a href="#audience">Who It's For</a></li>
-                <li><a href="https://notionpress.com/" class="nav-cta">Buy on Notion Press →</a></li>
+                <li><a href="#" class="nav-cta nav-cta-disabled" onclick="return false;">Paper Back Coming Soon</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -909,6 +960,11 @@
         </div>
     </nav>
 
+    <!-- PRICE BANNER -->
+    <div class="price-banner">
+        All you need to clear SSB is read this book and put in <strong>6 months to 1 year</strong> of hard work.
+    </div>
+
     <!-- HERO SECTION -->
     <section id="hero">
         <div class="container">
@@ -916,10 +972,8 @@
                 <div class="hero-content fade-in">
                     <h1>Are You just an Aspirant, or an Officer in the Making?</h1>
                     <p>The Board doesn't just test what you know; it identifies your potential to lead. Every year, thousands of aspirants arrive at the Selection Centres seeking the prestige of the uniform. Yet, the vast majority return without a recommendation. They don't fail for a lack of effort—they fail because the Board searches for a standard of character that cannot be manufactured through shortcuts.</p>
-                    
                     <p>The SSB is a high-stakes discovery of your core personality where transparency is the only path to success.</p>
-                    
-                    <p>Lt Cdr Vinay S Bharamanaikar (Retd.), a former Assessor who has evaluated hundreds of candidates, finally bridges the gap between being an applicant and becoming an officer. He provides a masterclass in professional transformation, revealing the deliberate practice required to cultivate the fifteen Officer-Like Qualities (OLQs) that the Board weighs with precision.</p>
+                    <p>Lt Cdr Vinay S Bharamanaikar (Retd.), a former Assessor who has evaluated hundreds of candidates, provides a masterclass in professional transformation, revealing the deliberate practice required to cultivate the fifteen Officer-Like Qualities (OLQs) that the Board weighs with precision.</p>
                     
                     <p><strong>Inside, you will master:</strong></p>
                     <ul class="hero-list">
@@ -934,7 +988,7 @@
                     <div class="book-mockup">
                         <img src="bookcover.jpg" alt="Have It In You! Book Cover" class="book-cover-image">
                     </div>
-                    <a href="https://www.amazon.in/HAVE-YOU-Prepare-SSB-right-ebook/dp/B0GX3CPTQN" class="book-cta-button" target="_blank">Buy on Amazon</a>
+                    <a href="https://www.amazon.in/HAVE-YOU-Prepare-SSB-right-ebook/dp/B0GX3CPTQN" class="book-cta-button" target="_blank">Buy ebook on Amazon</a>
                 </div>
             </div>
         </div>
@@ -1334,16 +1388,16 @@
         <div class="container fade-in">
             <h2>The uniform isn't given. It's earned. Start earning it today.</h2>
             <div class="final-cta-button">
-                <a href="https://notionpress.com/" class="btn btn-primary">Buy on Notion Press →</a>
+                <a href="#" class="btn btn-primary btn-disabled" onclick="return false;">Paper Back Coming Soon</a>
             </div>
-            <p class="cta-subtext">Available in paperback and eBook on Notion Press</p>
+            <p class="cta-subtext">Paperback edition coming soon on Notion Press</p>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-links">
-            <a href="https://notionpress.com/">Buy on Notion Press</a>
+            <a href="#">Paper Back Coming Soon on Notion Press</a>
         </div>
         <p>&copy; 2026 Lt Cdr Vinay S Bharamanaikar (Retd.). All rights reserved.</p>
         <p class="footer-credit">Have It In You! — A guide to becoming the Officer they can't ignore.</p>
