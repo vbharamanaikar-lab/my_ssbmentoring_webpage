@@ -26,6 +26,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 60px;
         }
 
         body {
@@ -33,6 +34,7 @@
             color: #1A1A1A;
             background-color: #F5F1E8;
             line-height: 1.6;
+            text-align: justify;
         }
 
         /* ===== TYPOGRAPHY ===== */
@@ -79,18 +81,18 @@
         }
 
         section {
-            padding: 96px 0;
+            padding: 60px 0;
         }
 
         @media (max-width: 768px) {
             section {
-                padding: 64px 0;
+                padding: 48px 0;
             }
         }
 
         @media (max-width: 480px) {
             section {
-                padding: 48px 0;
+                padding: 36px 0;
             }
         }
 
@@ -226,10 +228,10 @@
         /* ===== HERO SECTION ===== */
         #hero {
             background-color: #F5F1E8;
-            min-height: 100vh;
+            min-height: auto;
             display: flex;
-            align-items: center;
-            padding: 40px 0;
+            align-items: flex-start;
+            padding: 30px 0;
         }
 
         .hero-container {
@@ -255,14 +257,26 @@
 
         .hero-content p {
             color: #1A1A1A;
-            font-size: 0.95rem;
+            font-size: 1rem;
             line-height: 1.7;
-            margin: 0.75rem 0;
+            margin: 0.5rem 0;
+            font-family: 'Merriweather', serif;
+            text-align: justify;
         }
 
         .hero-content p:first-of-type {
             font-size: 1rem;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content p:has(+ .hero-list) {
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-content p:last-of-type {
+            margin-top: 0.375rem;
+            margin-bottom: 0;
         }
 
         .hero-content strong {
@@ -277,17 +291,23 @@
 
         .hero-list {
             list-style: none;
-            padding: 1rem 0;
-            margin: 1rem 0;
+            padding: 0;
+            margin: 0.5rem 0 0 1.5rem;
             border-left: 3px solid #800000;
             padding-left: 1.5rem;
         }
 
         .hero-list li {
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
             line-height: 1.6;
             color: #1A1A1A;
+            font-family: 'Merriweather', serif;
+            text-align: justify;
+        }
+
+        .hero-list li:last-child {
+            margin-bottom: 0;
         }
 
         .book-cover-sidebar {
@@ -527,6 +547,8 @@
             font-size: 0.95rem;
             line-height: 1.7;
             color: rgba(245, 241, 232, 0.85);
+            font-family: 'Merriweather', serif;
+            text-align: justify;
         }
 
         /* ===== PROMISE SECTION ===== */
@@ -541,13 +563,14 @@
         }
 
         .promise-intro {
-            text-align: center;
+            text-align: justify;
             font-size: 1.1rem;
             color: #1A1A1A;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            font-family: 'Merriweather', serif;
         }
 
         .promise-items {
@@ -564,8 +587,10 @@
 
         .promise-item p {
             color: #1A1A1A;
-            font-size: 0.95rem;
+            font-size: 1rem;
             line-height: 1.7;
+            font-family: 'Merriweather', serif;
+            text-align: justify;
         }
 
         /* ===== OLQ GRID ===== */
@@ -694,9 +719,10 @@
         }
 
         .toc-content p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #1A1A1A;
             opacity: 0.8;
+            font-family: 'Merriweather', serif;
         }
 
         /* ===== PULL QUOTE ===== */
@@ -780,10 +806,12 @@
         }
 
         .author-content p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #1A1A1A;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             line-height: 1.8;
+            font-family: 'Merriweather', serif;
+            text-align: justify;
         }
 
         .author-stats {
@@ -917,31 +945,14 @@
             color: #C9A961;
         }
 
-        /* ===== PRICE BANNER ===== */
-        .price-banner {
-            background: linear-gradient(135deg, #800000 0%, #600000 100%);
-            color: #FFD700;
-            padding: 1.5rem 2rem;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            font-family: 'Merriweather', serif;
-            line-height: 1.6;
-        }
 
-        .price-banner strong {
-            color: #FFFFFF;
-        }
     </style>
 </head>
 <body>
     <!-- STICKY NAV -->
     <nav>
         <div class="nav-container">
-            <div class="nav-brand"><span class="strikethrough">Do</span> You Have It In You <span class="strikethrough">?</span> !</div>
+            <div class="nav-brand"><span class="strikethrough">Do You</span> Have It In You <span class="strikethrough">?</span> !</div>
             <ul class="nav-links">
                 <li><a href="#inside">What's Inside</a></li>
                 <li><a href="#author">The Author</a></li>
@@ -956,28 +967,18 @@
         </div>
     </nav>
 
-    <!-- PRICE BANNER -->
-    <div class="price-banner">
-        All you need to clear SSB is <strong>Rs 249</strong> to learn from this book and <strong>6 months to 1 year</strong> of hard work.
-    </div>
-
     <!-- HERO SECTION -->
     <section id="hero">
         <div class="container">
             <div class="hero-container">
                 <div class="hero-content fade-in">
-                    <h1>Are You just an Aspirant, or an Officer in the Making?</h1>
-                    <p>The Board doesn't just test what you know; it identifies your potential to lead. Every year, thousands of aspirants arrive at the Selection Centres seeking the prestige of the uniform. Yet, the vast majority return without a recommendation. They don't fail for a lack of effort—they fail because the Board searches for a standard of character that cannot be manufactured through shortcuts.</p>
-                    
-                    <p>The SSB is a high-stakes discovery of your core personality where transparency is the only path to success.</p>
-                    
-                    <p>Lt Cdr Vinay S Bharamanaikar (Retd.), a former Assessor who has evaluated hundreds of candidates, finally bridges the gap between being an applicant and becoming an officer. He provides a masterclass in professional transformation, revealing the deliberate practice required to cultivate the fifteen Officer-Like Qualities (OLQs) that the Board weighs with precision.</p>
-                    
+                    <h1>All you need to clear SSB is learn from this book and put in hard work!</h1>
+                    <p>Lt Cdr Vinay S Bharamanaikar (Retd.), a former Assessor who has evaluated hundreds of candidates, provides a masterclass in professional transformation, revealing the deliberate practice required to cultivate the fifteen Officer-Like Qualities (OLQs) that the Board weighs with precision.</p>
                     <p><strong>Inside, you will master:</strong></p>
                     <ul class="hero-list">
-                        <li><strong>The Assessor's Perspective:</strong> Understand what the Board sees when candidates fail for reasons they cannot name.</li>
-                        <li><strong>The OLQ Blueprint:</strong> A roadmap to developing leadership traits through honest, consistent growth and practice.</li>
-                        <li><strong>The Standard of Excellence:</strong> How to align your conduct with the expectations of the Indian Armed Forces.</li>
+                        <li><strong>What is Expected:</strong> Officer Like Qualities explained in detail.</li>
+                        <li><strong>Why it Matters:</strong> Explained with real-world examples.</li>
+                        <li><strong>How to Develop OLQs:</strong> Suggestions for building these qualities through exercises and practice.</li>
                     </ul>
                     
                     <p>Before you face the Board, face this book. Answer the only question that determines your future: <em>Do you have it in you?</em> Because in the end, the Board doesn't just test what you know; it identifies your potential to lead.</p>
@@ -986,7 +987,7 @@
                     <div class="book-mockup">
                         <img src="bookcover.jpg" alt="Have It In You! Book Cover" class="book-cover-image">
                     </div>
-                    <a href="https://www.amazon.in/HAVE-YOU-Prepare-SSB-right-ebook/dp/B0GX3CPTQN" class="book-cta-button" target="_blank">Buy on Amazon</a>
+                    <a href="https://www.amazon.in/HAVE-YOU-Prepare-SSB-right-ebook/dp/B0GX3CPTQN" class="book-cta-button" target="_blank">Buy ebook on Amazon</a>
                 </div>
             </div>
         </div>
