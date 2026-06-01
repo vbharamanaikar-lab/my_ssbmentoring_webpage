@@ -122,6 +122,13 @@
             font-weight: 700;
             color: #C9A961;
             letter-spacing: -0.02em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .nav-brand:hover {
+            color: #F5F1E8;
         }
 
         .strikethrough {
@@ -440,12 +447,12 @@
         @media (max-width: 768px) {
             #hero {
                 min-height: auto;
-                padding: 2rem 0;
+                padding: 1rem 0;
             }
 
             .hero-container {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1rem;
             }
 
             .hero-content h1 {
@@ -471,24 +478,43 @@
         }
 
         @media (max-width: 480px) {
+            #hero {
+                padding: 0.75rem 0;
+            }
+
+            .hero-container {
+                gap: 0.75rem;
+            }
+
+            .hero-content {
+                gap: 0.5rem;
+            }
+
             .hero-content h1 {
-                font-size: 1.4rem;
+                font-size: 1.35rem;
+                margin: 0;
+                line-height: 1.3;
             }
 
             .hero-content p {
-                font-size: 0.85rem;
+                display: none;
             }
 
             .hero-list {
-                padding-left: 1rem;
+                display: none;
             }
 
-            .hero-list li {
-                font-size: 0.85rem;
+            .book-cover-sidebar {
+                gap: 1rem;
             }
 
             .book-cover-image {
-                max-width: 150px;
+                max-width: 130px;
+            }
+
+            .book-cta-button {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -952,11 +978,13 @@
     <!-- STICKY NAV -->
     <nav>
         <div class="nav-container">
-            <div class="nav-brand"><span class="strikethrough">Do You</span> Have It In You <span class="strikethrough">?</span> !</div>
+            <a href="index.html" class="nav-brand"><span class="strikethrough">Do You</span> Have It In You <span class="strikethrough">?</span> !</a>
             <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#inside">What's Inside</a></li>
                 <li><a href="#author">The Author</a></li>
                 <li><a href="#audience">Who It's For</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
                 <li><a href="#" class="nav-cta nav-cta-disabled" onclick="return false;">Paper Back Coming Soon</a></li>
             </ul>
             <div class="hamburger">
@@ -972,9 +1000,9 @@
         <div class="container">
             <div class="hero-container">
                 <div class="hero-content fade-in">
-                    <h1>All you need to clear SSB is learn from this book and put in hard work!</h1>
-                    <p>Lt Cdr Vinay S Bharamanaikar (Retd.), a former Assessor who has evaluated hundreds of candidates, provides a masterclass in professional transformation, revealing the deliberate practice required to cultivate the fifteen Officer-Like Qualities (OLQs) that the Board weighs with precision.</p>
-                    <p><strong>Inside, you will master:</strong></p>
+                    <h1>Looking for the key to your SSB success? Get the competitive edge with this high-impact, budget-friendly guide written by a former GTO.</h1>
+                    <p>Lt Cdr Vinay S Bharamanaikar (Retd.), a former Group Testing Officer who has evaluated thousands of candidates in stage 1 and hundreds of candidates in stage 2, provides a masterclass in professional transformation, through deliberate practice required to cultivate the fifteen Officer-Like Qualities (OLQs) that the Board weighs with precision.</p>
+                    <p><strong>Inside, you will learn and master:</strong></p>
                     <ul class="hero-list">
                         <li><strong>What is Expected:</strong> Officer Like Qualities explained in detail.</li>
                         <li><strong>Why it Matters:</strong> Explained with real-world examples.</li>
