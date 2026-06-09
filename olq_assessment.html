@@ -460,10 +460,18 @@ function renderReport(){
     <div class="rep-meta">${state.candidate.name||'Candidate'}${state.candidate.rank?' · '+state.candidate.rank:''}${state.candidate.date?' · '+state.candidate.date:''}</div>
   </div>`;
 
-  // Overall box
+  // Overall explanatory messages (to show inside the overall banner)
+  const overallMessages = {
+    recommend: 'You may get recommended, provided you demonstrate these qualities through your natural actions and responses at the SSB.',
+    little: 'You may need a little help and guidance to approach your SSB interview. Choose your mentor, guide, or reading material wisely.',
+    significant: 'You may need significant help and guidance to approach your SSB interview. Choose your mentor, guide, or reading material wisely.'
+  };
+
+  // Overall box (show explanatory message inside banner)
+  const overallMsg = overall ? overallMessages[overall.rating] : overallMessages['significant'];
   html+=`<div class="overall-box" style="background:${ov.bg}18;border-color:${ov.bg}55">
     <div style="font-size:11.5px;font-weight:600;color:${ov.bg};margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Overall Result</div>
-    <div class="overall-label" style="color:${ov.bg}">${ov.label}</div>`;
+    <div class="overall-label" style="color:${ov.bg};font-size:15px;line-height:1.45">${overallMsg}</div>`;
   if(overall&&overall.detail){
     html+=`<div class="overall-warn" style="background:${ov.bg}22;color:${ov.bg};border:.5px solid ${ov.bg}55">⚠ ${overall.detail}</div>`;
   }
@@ -476,49 +484,36 @@ function renderReport(){
     <div class="key-item"><div class="key-dot" style="background:#993C1D"></div>Need significant work</div>
   </div>`;
 
-  PARTS.forEach(part=>{
-    const pr=partRating(part);
-    const pv=pr ? R[pr] : R['significant'];
-    html+=`<div class="part-section">
-      <div class="part-rep-header" style="border-left-color:${pv.bg}">
+  // Do not display part-wise grades per user request. Instead show OLQ-level breakdowns only.
+  OLQs.forEach(olq=>{
+    const id = olq.id;
+    const rt=olqRating(id);
+    const rv=rt ? R[rt] : R['significant'];
+    const score=getOLQScore(id);
+    const barPct=score!==null ? Math.round((score/2)*100) : 0;
+    const bd=state.showBD[id];
+    const presCount=olq.qs.filter((_,qi)=>state.answers[id+'_'+qi]===2).length;
+    const incCount =olq.qs.filter((_,qi)=>state.answers[id+'_'+qi]===1).length;
+    const absCount =olq.qs.filter((_,qi)=>state.answers[id+'_'+qi]===0).length;
+    const isFlagged=highlightSet.has(id);
+    const borderStyle=isFlagged ? 'border-color:#993C1D;border-width:1.5px' : '';
+
+    html+=`<div class="rep-olq" style="${borderStyle}">
+      <div class="rep-olq-top">
         <div>
-          <div class="part-rep-title">${part.label}: ${part.title}${part.critical?' <span style="font-size:11px;color:#993C1D;margin-left:4px">★ Critical</span>':''}</div>
-          <div style="font-size:11.5px;color:var(--color-text-secondary);margin-top:1px">${part.desc}</div>
+          <div class="rep-olq-name">${olq.num}: ${olq.name}${isFlagged?'<span class="warn-tag">⚠ critical gap</span>':''}${CRITICAL_OVERALL.includes(id)&&!isFlagged?'<span style="font-size:10.5px;color:var(--color-text-secondary);margin-left:5px">key OLQ</span>':''}</div>
+          <div class="rep-score-label" style="margin-top:2px">${presCount} like me · ${incCount} somewhat · ${absCount} not like me</div>
         </div>
-        <span class="part-rep-badge" style="background:${pv.bg};color:${pv.color}">${pv.label}</span>
-      </div>`;
-
-    part.olqIds.forEach(id=>{
-      const olq=olqMap[id];
-      const rt=olqRating(id);
-      const rv=rt ? R[rt] : R['significant'];
-      const score=getOLQScore(id);
-      const barPct=score!==null ? Math.round((score/2)*100) : 0;
-      const bd=state.showBD[id];
-      const presCount=olq.qs.filter((_,qi)=>state.answers[id+'_'+qi]===2).length;
-      const incCount =olq.qs.filter((_,qi)=>state.answers[id+'_'+qi]===1).length;
-      const absCount =olq.qs.filter((_,qi)=>state.answers[id+'_'+qi]===0).length;
-      const isFlagged=highlightSet.has(id);
-      const borderStyle=isFlagged ? 'border-color:#993C1D;border-width:1.5px' : '';
-
-      html+=`<div class="rep-olq" style="${borderStyle}">
-        <div class="rep-olq-top">
-          <div>
-            <div class="rep-olq-name">${olq.num}: ${olq.name}${isFlagged?'<span class="warn-tag">⚠ critical gap</span>':''}${CRITICAL_OVERALL.includes(id)&&!isFlagged?'<span style="font-size:10.5px;color:var(--color-text-secondary);margin-left:5px">key OLQ</span>':''}</div>
-            <div class="rep-score-label" style="margin-top:2px">${presCount} like me · ${incCount} somewhat · ${absCount} not like me</div>
-          </div>
-          <span class="rep-badge" style="background:${rv.bg};color:${rv.color}">${rv.label}</span>
-        </div>
-        <div class="bar-bg"><div class="bar-fill" style="width:${barPct}%;background:${rv.bg}"></div></div>
-        <button class="toggle-btn" data-olq="${id}">${bd?'Hide':'Show'} statement breakdown</button>
-        ${bd?`<div class="breakdown">`+olq.qs.map((q,qi)=>{
-          const v=state.answers[id+'_'+qi];
-          const sc=SCALE.find(s=>s.val===v);
-          return`<div class="bk-row"><span class="bk-q">Q${qi+1}: ${q.substring(0,72)}${q.length>72?'…':''}</span><span class="bk-v" style="color:${sc?sc.color:'#888'}">${sc?sc.short:'—'}</span></div>`;
-        }).join('')+`</div>`:''}
-      </div>`;
-    });
-    html+=`</div>`;
+        <span class="rep-badge" style="background:${rv.bg};color:${rv.color}">${rv.label}</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:${barPct}%;background:${rv.bg}"></div></div>
+      <button class="toggle-btn" data-olq="${id}">${bd?'Hide':'Show'} statement breakdown</button>
+      ${bd?`<div class="breakdown">`+olq.qs.map((q,qi)=>{
+        const v=state.answers[id+'_'+qi];
+        const sc=SCALE.find(s=>s.val===v);
+        return`<div class="bk-row"><span class="bk-q">Q${qi+1}: ${q.substring(0,72)}${q.length>72?'…':''}</span><span class="bk-v" style="color:${sc?sc.color:'#888'}">${sc?sc.short:'—'}</span></div>`;
+      }).join('')+`</div>`:''}
+    </div>`;
   });
 
   html+=`<div class="actions" style="margin-top:1rem">
