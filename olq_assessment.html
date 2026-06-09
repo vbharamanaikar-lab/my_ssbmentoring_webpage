@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OLQ Self-Assessment</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,'Segoe UI',sans-serif);background:transparent;color:var(--color-text-primary)}
+.app{max-width:700px;margin:0 auto;padding:1.5rem 1rem 4rem}
+.header{text-align:center;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:.5px solid var(--color-border-tertiary)}
+.header h1{font-size:21px;font-weight:500;margin-bottom:4px}
+.header p{font-size:13px;color:var(--color-text-secondary)}
+.cand-card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg,12px);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.cand-card h2{font-size:16px;font-weight:500;margin-bottom:1rem}
+.field{margin-bottom:.875rem}
+.field label{display:block;font-size:13px;color:var(--color-text-secondary);margin-bottom:5px}
+.field input{width:100%;padding:8px 10px;border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);font-size:14px}
+.field input:focus{outline:none;border-color:#534AB7}
+.progress-wrap{background:var(--color-background-secondary);border-radius:99px;height:5px;margin-bottom:.375rem}
+.progress-fill{background:#534AB7;height:5px;border-radius:99px;transition:width .3s}
+.progress-lbl{font-size:12px;color:var(--color-text-secondary);text-align:right;margin-bottom:1.25rem}
+.part-header{margin:1.5rem 0 .75rem;padding:.65rem 1rem;background:var(--color-background-secondary);border-radius:var(--border-radius-md);border-left:3px solid #534AB7}
+.part-header h3{font-size:13px;font-weight:500;color:#534AB7;margin-bottom:1px}
+.part-header p{font-size:12px;color:var(--color-text-secondary)}
+.olq-card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.1rem 1.35rem;margin-bottom:1.25rem}
+.olq-head{display:flex;align-items:center;gap:10px;margin-bottom:.625rem}
+.olq-num{font-size:11px;font-weight:500;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.olq-name{font-size:15px;font-weight:500}
+.olq-desc{font-size:12.5px;color:var(--color-text-secondary);margin-bottom:1rem;line-height:1.55}
+.q-block{margin-bottom:1rem;padding-bottom:1rem;border-bottom:.5px solid var(--color-border-tertiary)}
+.q-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.q-text{font-size:13.5px;line-height:1.6;margin-bottom:.625rem}
+.q-num{color:var(--color-text-secondary);font-size:12px}
+.scale-btns{display:flex;gap:6px;flex-wrap:wrap}
+.scale-btn{flex:1;min-width:0;padding:7px 4px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:transparent;cursor:pointer;font-size:11.5px;color:var(--color-text-secondary);text-align:center;line-height:1.3;transition:all .15s}
+.scale-btn:hover{background:var(--color-background-secondary)}
+.scale-btn.sel-2{background:#1D9E75;border-color:#1D9E75;color:#fff}
+.scale-btn.sel-1{background:#BA7517;border-color:#BA7517;color:#fff}
+.scale-btn.sel-0{background:#993C1D;border-color:#993C1D;color:#fff}
+.actions{display:flex;justify-content:flex-end;gap:10px;margin-top:1.5rem}
+.btn{padding:9px 20px;border-radius:var(--border-radius-md);font-size:13.5px;cursor:pointer;border:.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);transition:background .15s}
+.btn:hover{background:var(--color-background-secondary)}
+.btn-primary{background:#534AB7;color:#fff;border-color:#534AB7}
+.btn-primary:hover{background:#3C3489;border-color:#3C3489}
+.rep-header{text-align:center;margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:.5px solid var(--color-border-tertiary)}
+.rep-header h2{font-size:21px;font-weight:500}
+.rep-meta{font-size:13px;color:var(--color-text-secondary);margin-top:4px}
+.overall-box{border-radius:var(--border-radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;border:.5px solid}
+.overall-label{font-size:22px;font-weight:500;margin-bottom:4px}
+.overall-warn{margin-top:.75rem;padding:.625rem .875rem;border-radius:var(--border-radius-md);font-size:12.5px;line-height:1.6}
+.part-section{margin-bottom:1.5rem}
+.part-rep-header{display:flex;justify-content:space-between;align-items:center;padding:.65rem 1rem;background:var(--color-background-secondary);border-radius:var(--border-radius-md);border-left:3px solid;margin-bottom:.75rem;gap:10px}
+.part-rep-title{font-size:13px;font-weight:500}
+.part-rep-badge{font-size:12px;font-weight:500;padding:2px 10px;border-radius:99px;white-space:nowrap}
+.rep-olq{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:.75rem}
+.rep-olq-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:.625rem}
+.rep-olq-name{font-size:14px;font-weight:500}
+.rep-badge{font-size:12px;font-weight:500;padding:2px 10px;border-radius:99px;white-space:nowrap}
+.bar-bg{background:var(--color-background-secondary);border-radius:99px;height:6px;margin-bottom:.5rem}
+.bar-fill{height:6px;border-radius:99px;transition:width .5s}
+.rep-score-label{font-size:12px;color:var(--color-text-secondary)}
+.toggle-btn{background:none;border:none;font-size:12px;color:var(--color-text-secondary);cursor:pointer;padding:0;margin-top:5px;text-decoration:underline}
+.breakdown{margin-top:.625rem}
+.bk-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:.5px solid var(--color-border-tertiary);font-size:12px;gap:12px}
+.bk-row:last-child{border-bottom:none}
+.bk-q{color:var(--color-text-secondary);flex:1}
+.bk-v{font-weight:500;white-space:nowrap}
+.key-strip{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.25rem}
+.key-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--color-text-secondary)}
+.key-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.note{font-size:12px;color:var(--color-text-tertiary,#999);margin-top:.5rem}
+.warn-tag{font-size:11px;color:#993C1D;margin-left:5px;font-weight:500}
+</style>
+</head>
+<body>
+<div class="app" id="root"></div>
+<script>
+const SCALE=[
+  {label:'This is like me',   short:'Like me',    val:2, cls:'sel-2', color:'#1D9E75'},
+  {label:'Somewhat like me',  short:'Somewhat',   val:1, cls:'sel-1', color:'#BA7517'},
+  {label:'Not like me',       short:'Not like me',val:0, cls:'sel-0', color:'#993C1D'}
+];
+
+const R={
+  recommend:  {label:'May get recommended',   color:'#fff', bg:'#1D9E75'},
+  little:     {label:'Need little help',       color:'#fff', bg:'#BA7517'},
+  significant:{label:'Need significant work',  color:'#fff', bg:'#993C1D'}
+};
+
+// OLQs that if ANY scores 'significant' → overall is significant
+const CRITICAL_OVERALL=['pe','sa','co','sr','lv','cou'];
+
+const PARTS=[
+  {id:'p1', label:'Part 1', title:'Intelligence & Expression',
+   olqIds:['ei','ra','oa','pe'],
+   desc:'Effective Intelligence · Reasoning Ability · Organising Ability · Power of Expression'},
+  {id:'p2', label:'Part 2', title:'Social Qualities',
+   olqIds:['sa','co','sr'],
+   desc:'Social Adaptability · Co-operation · Sense of Responsibility', critical:true},
+  {id:'p3', label:'Part 3', title:'Leadership & Drive',
+   olqIds:['ini','sc','spd','ig','lv'],
+   desc:'Initiative · Self Confidence · Speed of Decision · Ability to Influence the Group · Liveliness'},
+  {id:'p4', label:'Part 4', title:'Inner Strength',
+   olqIds:['det','cou','sta'],
+   desc:'Determination · Courage · Stamina'}
+];
+
+const OLQs=[
+  {id:'ei', num:'OLQ 1', name:'Effective Intelligence',
+   color:'#534AB7',bg:'#EEEDFE',
+   desc:'How well you use your mind to handle real, practical situations — not just in exams, but when things go wrong in everyday life.',
+   qs:[
+     'Your family is hosting a small get-together and the cook cancels at the last minute. Rather than panicking or waiting for an adult to fix it, you look at what\'s in the kitchen and figure out how to prepare something with what\'s available.',
+     'Your class teacher assigns a surprise project due tomorrow and you have no internet access at home. Instead of giving up, you think through what books, notes, or people around you could help you piece something together.',
+     'You are walking through your neighbourhood and you notice the street drain is blocked, causing water to collect. You find yourself wondering why it is blocked, how it could be fixed, and who should be responsible for it — even though it is not your problem.',
+     'Your school trip bus breaks down on the highway. While most students sit and wait, you start thinking of ways to get the group moving — asking a passing vehicle, contacting locals, checking alternate transport — rather than simply waiting.',
+     'After every exam or project, you spend some time thinking about what went well and what did not — and you write it down so you can do better next time, rather than just moving on.'
+   ]},
+  {id:'ra', num:'OLQ 2', name:'Reasoning Ability',
+   color:'#185FA5',bg:'#E6F1FB',
+   desc:'How clearly and logically you think through problems — separating facts from feelings, and arriving at conclusions that hold up under questioning.',
+   qs:[
+     'When your friend group is debating which movie to watch or where to go, you naturally list out the actual options, what each one costs or requires, and what makes most sense — rather than just going with whoever speaks loudest.',
+     'A classmate argues strongly that a certain study method is best "because it worked for her." You find yourself asking whether that really proves anything for everyone, and you look for more evidence before accepting the claim.',
+     'When you read news about something happening in your city or country, you notice yourself thinking "but what are the actual facts here?" and "is this just someone\'s opinion?" before forming your own view.',
+     'During a heated argument — say, about pocket money or a family decision — you notice when you are getting emotional and you pause to ask yourself what the actual facts are, rather than saying things you might regret.',
+     'When someone in class makes an argument that sounds confident but does not quite add up, you can usually put your finger on exactly what is wrong with it — even if you cannot explain the technical term for it.'
+   ]},
+  {id:'oa', num:'OLQ 3', name:'Organising Ability',
+   color:'#0F6E56',bg:'#E1F5EE',
+   desc:'How well you plan, coordinate, and manage tasks and people to get things done — especially when there is more to do than time or resources allow.',
+   qs:[
+     'Your colony or apartment building is planning a small cultural event for Independence Day. When the organiser asks for a volunteer to coordinate, you step up — and you figure out what needs to happen, in what order, and who should do what.',
+     'Before a busy school week — exams, practicals, a sports event — you sit down on Sunday and plan how to fit everything in, which things matter most, and what can wait. You do not just react as the week unfolds.',
+     'In the middle of a group project, two members drop out and the deadline does not move. Instead of panicking or blaming them, you quickly reshuffle the tasks, adjust the plan, and keep the work moving.',
+     'You read about how a big event — a mela, a relief camp after floods, a sports tournament — is organised. You find it genuinely interesting to understand how all the moving parts fit together and who coordinates what.',
+     'Before starting any assignment or chore — even a small one like packing for a trip — you take a moment to think through what you need, in what order, and what might go wrong, rather than jumping straight in.'
+   ]},
+  {id:'pe', num:'OLQ 4', name:'Power of Expression',
+   color:'#854F0B',bg:'#FAEEDA',
+   desc:'How clearly and confidently you express your thoughts — whether speaking in class, explaining something to a friend, or writing an answer in an exam.',
+   qs:[
+     'When a relative who has never studied science asks you to explain something from your syllabus — say, how electricity works — you find a way to make them actually understand it, using examples from everyday life.',
+     'Your school has an open mic or debate event and you sign up to speak, even when you are unsure how it will go. After you speak, you listen back or think through what you said and identify one specific thing to improve next time.',
+     'When you write an answer in your notebook or a letter to someone, you re-read it imagining you are a stranger who knows nothing about the topic — and you fix parts that would confuse that person.',
+     'Before answering a question in class or making a point in a group discussion, you take a second to organise your thought — main point first, then your reason, then a short example — rather than speaking in a rush.',
+     'When a friend is explaining their problem to you, you wait for them to finish, repeat back what you understood in your own words to check, and only then respond — rather than jumping in with your opinion mid-sentence.'
+   ]},
+  {id:'sa', num:'OLQ 5', name:'Social Adaptability',
+   color:'#3B6D11',bg:'#EAF3DE',
+   desc:'How comfortable and effective you are with people who are very different from you — in age, background, language, or social position.',
+   qs:[
+     'When a new student joins your class from a different state and barely speaks your language, you are one of the first to make real effort to include them — sitting with them at lunch, learning a word or two in their language, making them feel genuinely welcome.',
+     'You are at a wedding or family function with elderly relatives you barely know. Rather than sticking to your phone, you sit with them and ask about their lives — and you find the conversation actually interesting.',
+     'When you enter a new place — a new school, a new neighbourhood, a relative\'s home — you spend the first few minutes quietly observing how people interact, what the vibe is, and who the key people are, before jumping into conversations.',
+     'In a conversation with someone you have just met, you ask at least two or three follow-up questions about what they said before talking about yourself — and you are genuinely curious about their answers.',
+     'When you need to explain something to a much younger child versus a teacher, you naturally shift your language and tone — simpler and more visual for the child, more precise and respectful for the teacher — without being told to.'
+   ]},
+  {id:'co', num:'OLQ 6', name:'Co-operation',
+   color:'#185FA5',bg:'#E6F1FB',
+   desc:'How genuinely you work with others toward a shared goal — putting the team\'s success above your personal credit or convenience.',
+   qs:[
+     'In a group project, your idea gets outvoted and the class goes with someone else\'s approach. You put in just as much effort helping execute their plan as you would have put in for your own.',
+     'During a group activity — a relay race, a class skit, a community drive — you notice a teammate struggling quietly. You step over and help them without waiting to be asked, even if it means your own part takes a little longer.',
+     'When a teammate does something that genuinely saves the group, you make sure to name it specifically in front of others — "that was a great idea from Priya, it really changed things" — rather than letting it pass unnoticed.',
+     'Your school\'s annual day decorations are running behind and the team is short-handed. Even though you have already finished your assigned part, you stay back and take on whatever is left, without complaint.',
+     'You disagree with the direction your study group is taking for exam preparation. You say so clearly, give your reason, suggest an alternative — and then, once the group decides, you commit fully and do not keep bringing it up.'
+   ]},
+  {id:'sr', num:'OLQ 7', name:'Sense of Responsibility',
+   color:'#993556',bg:'#FBEAF0',
+   desc:'How reliable and accountable you are — doing what you said you would, owning your mistakes, and taking care of things without needing to be reminded.',
+   qs:[
+     'You told a friend you would help them revise for their exam on Saturday. On Friday evening something more interesting comes up. You honour the original commitment to your friend — or you call them well in advance and sort it out honestly.',
+     'You make a mistake in class — you give wrong information during a presentation, or you accidentally break something. You acknowledge it openly to the teacher or the group, apologise without excuses, and make up for it as best you can.',
+     'There is a notice board in your classroom that is always dusty and disorganised. Nobody has been asked to maintain it. You quietly start keeping it tidy — not to get credit, but because you notice it needs to be done.',
+     'Walking to school one morning, you see a small child sitting alone and crying outside a house. You stop to check, find out what is wrong, and stay until an adult from the house comes — even though you will be a few minutes late.',
+     'You have thought about what kind of person you want to be — honest, fair, reliable — and when a situation comes up where it would be easy to compromise on that, you choose not to, even if no one would find out.'
+   ]},
+  {id:'ini', num:'OLQ 8', name:'Initiative',
+   color:'#534AB7',bg:'#EEEDFE',
+   desc:'How quickly you act on what needs to be done — without waiting for someone to tell you, push you, or give you permission.',
+   qs:[
+     'The classroom whiteboard is dirty before the lesson starts and the teacher has not arrived yet. While everyone else waits, you pick up the duster and clean it. You do not announce this or wait for applause.',
+     'You notice that many students in your area struggle with one particular subject and nobody is helping them. Without waiting for a teacher to assign you, you start a small informal study group on your own.',
+     'In a group discussion — in class, in a meeting, on a WhatsApp group — you make a point of contributing something useful at least once, even when you are not entirely sure it is perfect. You do not wait for a "safe" moment.',
+     'You deliberately try something new every month — a sport you have never played, a place you have never visited, a topic you know nothing about — because you know that being comfortable with the unfamiliar makes you more capable.',
+     'When you say you will start something — a new study habit, a fitness routine, a personal project — you actually start it within the same day or week. You do not let it sit as a plan.'
+   ]},
+  {id:'sc', num:'OLQ 9', name:'Self Confidence',
+   color:'#0F6E56',bg:'#E1F5EE',
+   desc:'A quiet, grounded belief in your own ability — not dependent on others\' approval, and not shaken by a single failure.',
+   qs:[
+     'You sign up for something genuinely difficult — a competitive exam, a state-level sport, a solo performance — even though you are not sure you will succeed. You do it because you want to find out what you are made of.',
+     'Before your board exam or a major test, you feel ready — not because you think it will be easy, but because you know exactly what you have studied and what you still need to revise. Your confidence comes from preparation, not wishful thinking.',
+     'Before a big presentation or match, your inner voice starts saying "what if I mess up?" You notice this thought, remind yourself of times you prepared and came through, and replace the worry with something more accurate and useful.',
+     'You walk into a new classroom, interview room, or social situation standing straight, making eye contact, and speaking at a pace people can follow — not because you are showing off, but because that is simply how you carry yourself.',
+     'You failed at something important — did not make the team, did poorly in an exam, had a public embarrassment. You let yourself feel it for a bit, then you figure out what to do differently, and you try again.'
+   ]},
+  {id:'spd', num:'OLQ 10', name:'Speed of Decision',
+   color:'#854F0B',bg:'#FAEEDA',
+   desc:'How quickly and decisively you make good-enough choices under pressure — without freezing, over-thinking, or waiting for perfect information.',
+   qs:[
+     'Your school sports day is in chaos — a relay team member has not shown up and the race starts in five minutes. While others argue about what to do, you quickly pick the most available option and get everyone moving.',
+     'When you need to make routine choices — which dish to order, which route to take, which movie to suggest — you decide within thirty seconds and move on. You do not agonise over small decisions.',
+     'You play a sport or game — chess, basketball, kabaddi, table tennis — that requires you to read the situation and respond instantly. You prefer taking the fast, reasonable call over hesitating for a perfect one.',
+     'After making an important decision — which stream to pick, which elective to take — you do not keep second-guessing it every day. You commit, act on it, and adjust only if clear new information arrives.',
+     'When a friend is in trouble and needs immediate help — stuck somewhere, being bullied, feeling very low — you do not overthink. You assess quickly, decide what\'s most useful, and act within minutes.'
+   ]},
+  {id:'ig', num:'OLQ 11', name:'Ability to Influence the Group',
+   color:'#533489',bg:'#EEEDFE',
+   desc:'How naturally you earn the trust and willing cooperation of others — not by ordering people, but by making them want to follow your lead.',
+   qs:[
+     'In your friend group or class committee, when a difficult or unglamorous job needs to be done, you do it first — without waiting to be assigned and without making a show of it. Others notice and follow.',
+     'You make a genuine effort to understand the people around you — what each classmate or friend is good at, what they find hard, what motivates them — and you use this to bring the best out of them in group situations.',
+     'When your project group is drifting with no clear direction, you step in calmly and say something like: "Here\'s what we need to do, here\'s why it matters, let\'s start with this step." The group listens and gets moving.',
+     'Whenever there is a chance to lead something at school — a committee, a team, a school drive — you volunteer, even if you are not certain you are the best person for it. You know leading is how you learn to lead.',
+     'When someone in your group is clearly struggling — behind on work, upset, or being left out — you check on them privately, find out what\'s going on, and find a way to bring them back into the team.'
+   ]},
+  {id:'lv', num:'OLQ 12', name:'Liveliness',
+   color:'#3B6D11',bg:'#EAF3DE',
+   desc:'The energy, optimism, and enthusiasm you bring to situations — especially when things are hard, boring, or not going your way.',
+   qs:[
+     'You exercise or play a sport at least five days a week — not because someone forces you, but because you have noticed it makes you sharper, more cheerful, and more capable throughout the day.',
+     'When something goes wrong — a plan fails, you get a bad mark, a friend lets you down — you allow yourself to feel it briefly, then ask yourself: "What\'s one thing I can do about this?" and you actually do it.',
+     'When you meet someone new — a vendor, a classmate from another section, a visiting relative — you are genuinely curious about their life. You ask real questions, and you remember what they told you.',
+     'You know which activities leave you feeling energised and which leave you drained. You protect the things that restore you — a sport, music, time outdoors, a good conversation — and you treat them as important, not optional.',
+     'There is something you genuinely care about — a cause, a subject, a skill — and every day you spend at least a little time on it, even if only ten minutes, because it gives you a sense that the day meant something.'
+   ]},
+  {id:'det', num:'OLQ 13', name:'Determination',
+   color:'#A32D2D',bg:'#FCEBEB',
+   desc:'The ability to keep going toward a goal — through boredom, setbacks, and the temptation to quit — long after the initial excitement has faded.',
+   qs:[
+     'You set yourself a difficult goal — finishing a fitness programme, preparing for a competitive exam, learning a new skill — and you have been working at it every day for more than a month, even on days when you felt like skipping.',
+     'When a task becomes uncomfortable — a long study session, a painful practice, a boring but important job — you push yourself to continue for at least thirty minutes beyond the point where you first wanted to stop.',
+     'You have a clear, personal reason for wanting to join the armed forces or pursue a difficult path — and when things get hard, you remind yourself of that reason and it genuinely helps you keep going.',
+     'When you fail at something important — do not make the cut, get a poor result, lose a match you worked hard for — you give yourself a day to feel bad, then sit down, figure out what went wrong, and make a plan to try again.',
+     'You have at least one daily habit — morning exercise, reading, practising a skill — that you have kept without a break for at least two months, regardless of how you feel on any given day.'
+   ]},
+  {id:'cou', num:'OLQ 14', name:'Courage',
+   color:'#993C1D',bg:'#FAECE7',
+   desc:'The ability to do what is right or necessary even when you are afraid, uncomfortable, or under pressure from others to back down.',
+   qs:[
+     'A classmate is being mocked or unfairly treated by a group — including some popular students. You speak up and say it is not okay, even though you know it might make you unpopular with that group.',
+     'You push yourself physically on a regular basis — long runs, difficult treks, a physically demanding sport — not to show off, but because you want to know you can handle discomfort when it matters.',
+     'When a teacher or senior makes a factual error in front of the class, you politely and respectfully point it out — even though part of you wants to stay quiet and avoid the awkwardness.',
+     'You have a difficult conversation that has been hanging over you — an apology you owe, a problem you need to raise with a parent or teacher. You have it within two weeks of deciding it needs to happen.',
+     'You know clearly what kind of person you want to be — someone who is honest, fair, and does not take shortcuts — and when a situation tests this, you choose that standard even when doing so has a real cost.'
+   ]},
+  {id:'sta', num:'OLQ 15', name:'Stamina',
+   color:'#185FA5',bg:'#E6F1FB',
+   desc:'The physical and mental endurance to keep functioning well over long, demanding periods — not just in sprints but across sustained effort.',
+   qs:[
+     'On days with school, coaching, sports practice, and homework back-to-back, you still manage to do all of it reasonably well — you do not collapse after the first two commitments and let the rest slide.',
+     'You train outdoors even when the weather is bad, or you study late even when you are tired — not all the time, but regularly enough that difficulty no longer automatically means stopping.',
+     'When studying for exams or working on a project, you can sit with full focus — no phone, no drifting — for at least sixty to ninety minutes at a stretch before taking a short break.',
+     'You treat sleep as seriously as your studies or training — you go to bed and wake up at roughly the same time every day, and you rarely sacrifice sleep for avoidable reasons like late-night scrolling.',
+     'You have been doing some form of physical training consistently for at least two to three months — progressively getting a little bit harder each week — rather than starting and stopping in short bursts.'
+   ]}
+];
+
+// Made backwards-compatible for all browsers
+const olqMap = {};
+OLQs.forEach(o => { olqMap[o.id] = o; });
+
+let state={screen:'intro',candidate:{name:'',rank:'',date:''},answers:{},showBD:{}};
+OLQs.forEach(o=>o.qs.forEach((_,qi)=>{state.answers[o.id+'_'+qi]=null}));
+
+function answered(){return Object.values(state.answers).filter(v=>v!==null).length}
+function total(){return OLQs.length*5}
+
+function getOLQScore(id){
+  const olq=olqMap[id]; let sum=0,cnt=0;
+  olq.qs.forEach((_,qi)=>{const v=state.answers[id+'_'+qi];if(v!==null){sum+=v;cnt++;}});
+  return cnt===5 ? sum/5 : null;
+}
+
+// OLQ rating by score
+function scoreToRating(s){
+  if(s===null) return null;
+  if(s>=1.6)   return 'recommend';
+  if(s>=0.8)   return 'little';
+  return 'significant';
+}
+function olqRating(id){ return scoreToRating(getOLQScore(id)); }
+
+// Majority rating among a list of ratings
+function majorityRating(ratings){
+  const r=ratings.filter(x=>x!==null);
+  const c={recommend:0,little:0,significant:0};
+  r.forEach(x=>c[x]++);
+  if(c.recommend>=c.little && c.recommend>=c.significant) return 'recommend';
+  if(c.little>=c.significant) return 'little';
+  return 'significant';
+}
+
+// ── PART GRADING RULES ────────────────────────────────────────────────────────
+
+function gradeP1(){
+  const ei=olqRating('ei'), ra=olqRating('ra'), oa=olqRating('oa'), pe=olqRating('pe');
+  if([ei,ra,oa,pe].some(r=>r===null)) return null;
+  // Special rule: if EI=rec, RA=rec, OA=little|significant, PE=rec → grade as recommend
+  if(ei==='recommend' && ra==='recommend' && oa!=='recommend' && pe==='recommend')
+    return 'recommend';
+  // Else majority
+  return majorityRating([ei,ra,oa,pe]);
+}
+
+function gradeP2(){
+  const sa=olqRating('sa'), co=olqRating('co'), sr=olqRating('sr');
+  if([sa,co,sr].some(r=>r===null)) return null;
+  // All three must be recommend for part to be recommend
+  if(sa==='recommend' && co==='recommend' && sr==='recommend') return 'recommend';
+  return majorityRating([sa,co,sr]);
+}
+
+function gradeP3(){
+  const ini=olqRating('ini'), sc=olqRating('sc'), spd=olqRating('spd'),
+        ig=olqRating('ig'), lv=olqRating('lv');
+  if([ini,sc,spd,ig,lv].some(r=>r===null)) return null;
+  // Special rule: if Init=rec, SC=rec, Lv=rec → grade as recommend (regardless of SPD/IG)
+  if(ini==='recommend' && sc==='recommend' && lv==='recommend') return 'recommend';
+  return majorityRating([ini,sc,spd,ig,lv]);
+}
+
+function gradeP4(){
+  const det=olqRating('det'), cou=olqRating('cou'), sta=olqRating('sta');
+  if([det,cou,sta].some(r=>r===null)) return null;
+  // New rule: if Courage is 'significant' then Part 4 must be 'significant'
+  if(cou === 'significant') return 'significant';
+  // Otherwise use simple majority among the three OLQs
+  return majorityRating([det,cou,sta]);
+}
+
+function partRating(part){
+  if(part.id==='p1') return gradeP1();
+  if(part.id==='p2') return gradeP2();
+  if(part.id==='p3') return gradeP3();
+  if(part.id==='p4') return gradeP4();
+  return null;
+}
+
+// ── OVERALL RESULT ────────────────────────────────────────────────────────────
+
+function overallResult(){
+  const partGrades = PARTS.map(p=>partRating(p));
+  if(partGrades.some(g=>g===null)) return null;
+
+  // Rule: if any of the 6 critical OLQs is 'significant' → overall significant
+  const criticalFailed = CRITICAL_OVERALL.filter(id=>olqRating(id)==='significant');
+  if(criticalFailed.length>0){
+    return{
+      rating:'significant',
+      detail:'One or more critical OLQs scored "Need significant work": '+
+        criticalFailed.map(id=>olqMap[id].name).join(', ')+'.',
+      highlightOlqs: criticalFailed
+    };
+  }
+
+  // Rule: all 4 parts recommend → overall recommend
+  if(partGrades.every(g=>g==='recommend')) return{rating:'recommend',detail:null,highlightOlqs:[]};
+
+  // Rule: 1 or 2 parts are 'little', rest recommend → little
+  const littleCount    = partGrades.filter(g=>g==='little').length;
+  const sigCount       = partGrades.filter(g=>g==='significant').length;
+
+  if(sigCount===0 && littleCount>=1 && littleCount<=2) return{rating:'little',detail:null,highlightOlqs:[]};
+
+  // Rule: more than 2 parts are significant → significant
+  if(sigCount>2) return{rating:'significant',detail:null,highlightOlqs:[]};
+
+  // Fallback majority
+  return{rating:majorityRating(partGrades),detail:null,highlightOlqs:[]};
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+
+function render(){
+  const root=document.getElementById('root');
+  if(state.screen==='intro')       root.innerHTML=renderIntro();
+  else if(state.screen==='q')      root.innerHTML=renderQ();
+  else if(state.screen==='report') root.innerHTML=renderReport();
+  attachEvents();
+}
+
+function renderIntro(){
+  const today=new Date().toISOString().split('T')[0];
+  return`<div class="header">
+    <h1>OLQ Self-Assessment</h1>
+    <p style="max-width: 550px; margin: 0 auto; line-height: 1.4; font-size: 13px; color: var(--color-text-secondary);">
+      <em>Disclaimer: This is just to give a rough estimate and should not be assumed as an exact assessment. An exact assessment can't be done with just this sheet—that's why we have the SSB. This is simply to give you an idea of where you stand.</em>
+    </p>
+  </div>
+  <div class="cand-card">
+    <h2>Your details</h2>
+    <div class="field"><label>Full name</label><input id="c-name" type="text" placeholder="Enter your name" value="${state.candidate.name}"/></div>
+    <div class="field"><label>School / Chest number</label><input id="c-rank" type="text" placeholder="e.g. DPS Pune / 12345" value="${state.candidate.rank}"/></div>
+    <div class="field"><label>Date</label><input id="c-date" type="date" value="${state.candidate.date||today}"/></div>
+  </div>
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:13px;color:var(--color-text-secondary);line-height:1.7">
+    <strong style="color:var(--color-text-primary);font-weight:500;">How to answer:</strong> Each statement describes a real-life situation. Choose the option that honestly reflects how you actually are — not how you wish you were.
+    <div style="margin-top:.85rem;display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:8px"><span class="key-dot" style="background:#1D9E75"></span><strong style="color:var(--color-text-primary)">This is like me</strong> — this is how I genuinely and regularly behave</div>
+      <div style="display:flex;align-items:center;gap:8px"><span class="key-dot" style="background:#BA7517"></span><strong style="color:var(--color-text-primary)">Somewhat like me</strong> — I do this sometimes but not consistently</div>
+      <div style="display:flex;align-items:center;gap:8px"><span class="key-dot" style="background:#993C1D"></span><strong style="color:var(--color-text-primary)">Not like me</strong> — this rarely or never describes me</div>
+    </div>
+  </div>
+  <div class="actions"><button class="btn btn-primary" id="start-btn">Begin Assessment →</button></div>`;
+}
+
+function renderQ(){
+  const done=answered(),tot=total(),pct=Math.round((done/tot)*100);
+  let html=`<div class="header"><h1>OLQ Self-Assessment</h1><p>${state.candidate.name?state.candidate.name+' · ':''}15 qualities · 4 parts · answer honestly</p></div>
+  <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%"></div></div>
+  <div class="progress-lbl">${done} of ${tot} completed</div>`;
+
+  PARTS.forEach(part=>{
+    html+=`<div class="part-header" style="border-left-color:${part.critical?'#993C1D':'#534AB7'}">
+      <h3 style="color:${part.critical?'#993C1D':'#534AB7'}">${part.label}: ${part.title}${part.critical?' <span style="font-size:11px;margin-left:4px">★ All three must be strong</span>':''}</h3>
+      <p>${part.desc}</p>
+    </div>`;
+    part.olqIds.forEach(id=>{
+      const olq=olqMap[id];
+      const isCritOlq=CRITICAL_OVERALL.includes(id);
+      html+=`<div class="olq-card">
+        <div class="olq-head">
+          <span class="olq-num" style="background:${olq.bg};color:${olq.color}">${olq.num}</span>
+          <span class="olq-name">${olq.name}</span>
+        </div>
+        <div class="olq-desc">${olq.desc}</div>`;
+      olq.qs.forEach((q,qi)=>{
+        const key=olq.id+'_'+qi, cur=state.answers[key];
+        html+=`<div class="q-block"><div class="q-text"><span class="q-num">Q${qi+1}. </span>${q}</div>
+          <div class="scale-btns">`;
+        SCALE.forEach(s=>{
+          const sel=cur===s.val?` ${s.cls}`:'';
+          html+=`<button class="scale-btn${sel}" data-key="${key}" data-val="${s.val}">${s.label}</button>`;
+        });
+        html+=`</div></div>`;
+      });
+      html+=`</div>`;
+    });
+  });
+
+  html+=`<div class="actions">
+    <button class="btn" id="back-btn">← Back</button>
+    <button class="btn btn-primary" id="submit-btn"${done<tot?' disabled style="opacity:.5;cursor:not-allowed"':''}>Generate Report →</button>
+  </div>
+  ${done<tot?`<p class="note" style="text-align:right;margin-top:.5rem">${tot-done} statement${tot-done!==1?'s':''} still to answer</p>`:''}`;
+  return html;
+}
+
+function renderReport(){
+  const overall=overallResult();
+  const ov=overall ? R[overall.rating] : R['significant'];
+  const highlightSet=new Set((overall&&overall.highlightOlqs)||[]);
+
+  let html=`<div class="rep-header">
+    <h2>OLQ Assessment Report</h2>
+    <div class="rep-meta">${state.candidate.name||'Candidate'}${state.candidate.rank?' · '+state.candidate.rank:''}${state.candidate.date?' · '+state.candidate.date:''}</div>
+  </div>`;
+
+  // Overall box
+  html+=`<div class="overall-box" style="background:${ov.bg}18;border-color:${ov.bg}55">
+    <div style="font-size:11.5px;font-weight:600;color:${ov.bg};margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Overall Result</div>
+    <div class="overall-label" style="color:${ov.bg}">${ov.label}</div>`;
+  if(overall&&overall.detail){
+    html+=`<div class="overall-warn" style="background:${ov.bg}22;color:${ov.bg};border:.5px solid ${ov.bg}55">⚠ ${overall.detail}</div>`;
+  }
+  html+=`</div>`;
+
+  // Key
+  html+=`<div class="key-strip">
+    <div class="key-item"><div class="key-dot" style="background:#1D9E75"></div>May get recommended</div>
+    <div class="key-item"><div class="key-dot" style="background:#BA7517"></div>Need little help</div>
+    <div class="key-item"><div class="key-dot" style="background:#993C1D"></div>Need significant work</div>
+  </div>`;
+
+  PARTS.forEach(part=>{
+    const pr=partRating(part);
+    const pv=pr ? R[pr] : R['significant'];
+    html+=`<div class="part-section">
+      <div class="part-rep-header" style="border-left-color:${pv.bg}">
+        <div>
+          <div class="part-rep-title">${part.label}: ${part.title}${part.critical?' <span style="font-size:11px;color:#993C1D;margin-left:4px">★ Critical</span>':''}</div>
+          <div style="font-size:11.5px;color:var(--color-text-secondary);margin-top:1px">${part.desc}</div>
+        </div>
+        <span class="part-rep-badge" style="background:${pv.bg};color:${pv.color}">${pv.label}</span>
+      </div>`;
+
+    part.olqIds.forEach(id=>{
+      const olq=olqMap[id];
+      const rt=olqRating(id);
+      const rv=rt ? R[rt] : R['significant'];
+      const score=getOLQScore(id);
+      const barPct=score!==null ? Math.round((score/2)*100) : 0;
+      const bd=state.showBD[id];
+      const presCount=olq.qs.filter((_,qi)=>state.answers[id+'_'+qi]===2).length;
+      const incCount =olq.qs.filter((_,qi)=>state.answers[id+'_'+qi]===1).length;
+      const absCount =olq.qs.filter((_,qi)=>state.answers[id+'_'+qi]===0).length;
+      const isFlagged=highlightSet.has(id);
+      const borderStyle=isFlagged ? 'border-color:#993C1D;border-width:1.5px' : '';
+
+      html+=`<div class="rep-olq" style="${borderStyle}">
+        <div class="rep-olq-top">
+          <div>
+            <div class="rep-olq-name">${olq.num}: ${olq.name}${isFlagged?'<span class="warn-tag">⚠ critical gap</span>':''}${CRITICAL_OVERALL.includes(id)&&!isFlagged?'<span style="font-size:10.5px;color:var(--color-text-secondary);margin-left:5px">key OLQ</span>':''}</div>
+            <div class="rep-score-label" style="margin-top:2px">${presCount} like me · ${incCount} somewhat · ${absCount} not like me</div>
+          </div>
+          <span class="rep-badge" style="background:${rv.bg};color:${rv.color}">${rv.label}</span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill" style="width:${barPct}%;background:${rv.bg}"></div></div>
+        <button class="toggle-btn" data-olq="${id}">${bd?'Hide':'Show'} statement breakdown</button>
+        ${bd?`<div class="breakdown">`+olq.qs.map((q,qi)=>{
+          const v=state.answers[id+'_'+qi];
+          const sc=SCALE.find(s=>s.val===v);
+          return`<div class="bk-row"><span class="bk-q">Q${qi+1}: ${q.substring(0,72)}${q.length>72?'…':''}</span><span class="bk-v" style="color:${sc?sc.color:'#888'}">${sc?sc.short:'—'}</span></div>`;
+        }).join('')+`</div>`:''}
+      </div>`;
+    });
+    html+=`</div>`;
+  });
+
+  html+=`<div class="actions" style="margin-top:1rem">
+    <button class="btn" id="restart-btn">← New Assessment</button>
+    <button class="btn btn-primary" id="print-btn">⎙ Print Report</button>
+  </div>`;
+  return html;
+}
+
+function attachEvents(){
+  document.querySelectorAll('.scale-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const key=this.dataset.key, val=parseInt(this.dataset.val);
+      state.answers[key]=val;
+      this.closest('.scale-btns').querySelectorAll('.scale-btn').forEach(b=>{SCALE.forEach(s=>b.classList.remove(s.cls))});
+      SCALE.forEach(s=>{if(s.val===val)this.classList.add(s.cls)});
+      const done=answered(),tot=total(),pct=Math.round((done/tot)*100);
+      const bar=document.querySelector('.progress-fill');
+      const lbl=document.querySelector('.progress-lbl');
+      if(bar)bar.style.width=pct+'%';
+      if(lbl)lbl.textContent=done+' of '+tot+' completed';
+      const sub=document.getElementById('submit-btn');
+      if(sub&&done>=tot){sub.removeAttribute('disabled');sub.style.opacity='1';sub.style.cursor='pointer';const n=document.querySelector('.note');if(n)n.remove();}
+    });
+  });
+  const s=document.getElementById('start-btn');
+  if(s)s.addEventListener('click',()=>{
+    state.candidate.name=document.getElementById('c-name').value;
+    state.candidate.rank=document.getElementById('c-rank').value;
+    state.candidate.date=document.getElementById('c-date').value;
+    state.screen='q'; render(); window.scrollTo(0,0);
+  });
+  const b=document.getElementById('back-btn');
+  if(b)b.addEventListener('click',()=>{state.screen='intro';render();window.scrollTo(0,0);});
+  
+  const sub=document.getElementById('submit-btn');
+  if(sub) {
+    sub.addEventListener('click',()=>{
+      if(answered() >= total()) {
+        state.screen='report';
+        render();
+        window.scrollTo(0,0);
+      } else {
+        alert("Please answer all " + total() + " statements before generating the report.");
+      }
+    });
+  }
+  
+  const r=document.getElementById('restart-btn');
+  if(r)r.addEventListener('click',()=>{
+    OLQs.forEach(o=>o.qs.forEach((_,qi)=>{state.answers[o.id+'_'+qi]=null}));
+    state.showBD={};state.candidate={name:'',rank:'',date:''};
+    state.screen='intro';render();window.scrollTo(0,0);
+  });
+  const p=document.getElementById('print-btn');
+  if(p)p.addEventListener('click',()=>window.print());
+  document.querySelectorAll('.toggle-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      state.showBD[this.dataset.olq]=!state.showBD[this.dataset.olq]; render();
+    });
+  });
+}
+
+render();
+</script>
+</body>
+</html>
