@@ -245,7 +245,7 @@
             min-height: auto;
             display: flex;
             align-items: flex-start;
-            padding: 30px 0;
+            padding: 15px 0;
         }
 
         .hero-container {
@@ -346,6 +346,38 @@
             height: auto;
             display: block;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-cta-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 5px; /* 5px gap between CTAs */
+            align-items: center;
+            width: 100%;
+        }
+
+        .book-cta-panel .btn {
+            width: 260px;
+            height: 44px;
+            padding: 0 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: left;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background-color: #C9A961;
+            color: #0B1B2B;
+            border: 2px solid #C9A961;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .book-cta-panel .btn:hover {
+            box-shadow: 0 12px 24px rgba(201, 169, 97, 0.25);
+            transform: translateY(-2px);
         }
 
         .book-cta-button {
@@ -1022,7 +1054,11 @@
                     <div class="book-mockup">
                         <img src="bookcover.jpg" alt="Have It In You! Book Cover" class="book-cover-image">
                     </div>
-                    <a href="https://www.amazon.in/HAVE-YOU-Prepare-SSB-right-ebook/dp/B0GX3CPTQN" class="book-cta-button" target="_blank">Buy ebook on Amazon</a>
+                    <div class="book-cta-panel">
+                        <a href="https://notionpress.com/in/read/have-it-in-you" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy on Notion Press @INR349</a>
+                        <a href="https://www.amazon.in/dp/B0H4RD8T7M/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Buy on Amazon @INR349</a>
+                        <a href="https://www.amazon.in/HAVE-YOU-Prepare-SSB-right-ebook/dp/B0GX3CPTQN" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Buy ebook @INR249</a>
+                    </div>
                 </div>
             </div>
         </div>
